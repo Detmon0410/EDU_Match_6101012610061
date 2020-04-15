@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time,unittest
+import time, unittest
 from django.test import LiveServerTestCase
+
 
 class NewVisitorTest(LiveServerTestCase):
 
@@ -61,7 +62,7 @@ class NewVisitorTest(LiveServerTestCase):
         input_lastname = self.browser.find_element_by_id('id_last_name')
         input_lastname.send_keys('Phareyart')
 
-      # เขาได้ใส่ E-mail เป็น example@gmail.com
+        # เขาได้ใส่ E-mail เป็น example@gmail.com
         input_email = self.browser.find_element_by_id('id_email')
         input_email.send_keys('example@gmail.com')
 
@@ -105,7 +106,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # เขาเห็นชื่อที่ผิดรากฏอยู่ที่ textinput
         input_firstname_profile = self.browser.find_element_by_id('id_first_name')
-        #print(input_firstname_profile)
+        # print(input_firstname_profile)
         self.assertIn('Paskorn', input_firstname_profile.get_attribute("value"))
 
         # เขาจึงลบชื่อที่ผิดเเละเเก้เป็น Pasakorn
@@ -185,7 +186,6 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.fail('Finish the test!')
 
-
     def test_to_search_for_matching(self):
         self.browser.get(self.live_server_url + '/signup')
         # เขาเห็นว่า title มีชื่อว่า Sign Up
@@ -208,7 +208,6 @@ class NewVisitorTest(LiveServerTestCase):
         inputpassword2.send_keys(Keys.ENTER)
         time.sleep(1)
 
-
         self.browser.get(self.live_server_url + '/account/login/')
 
         # เขาพิมพ์ Username เเละ password ลงไป
@@ -223,7 +222,6 @@ class NewVisitorTest(LiveServerTestCase):
         # จากนั้นเขาจึงกดปุ่ม Enter
         inputpassword.send_keys(Keys.ENTER)
         time.sleep(1)
-
 
         # From then, he added the names of subjects that he was not good at anymore
         self.browser.get(self.live_server_url)
@@ -242,17 +240,17 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-    # The webpage shows more people who specialize in "General Mathematics"
+        # The webpage shows more people who specialize in "General Mathematics"
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn('1:kitsanapong', [row.text for row in rows])
-    # Later, he wanted to know what would happen if he typed a subject that didn't exist
+        # Later, he wanted to know what would happen if he typed a subject that didn't exist
         inputbox.send_keys('Nothing')
 
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-    # The webpage shows the message "No match found. Ready to match. Please re-match later."
+        # The webpage shows the message "No match found. Ready to match. Please re-match later."
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn('No users were found matching', [row.text for row in rows])
@@ -261,74 +259,74 @@ class NewVisitorTest(LiveServerTestCase):
 
     # He feels like this website very much
 
+
 def test_to_review(self):
-        self.browser.get(self.live_server_url + '/signup')
-        # เขาเห็นว่า title มีชื่อว่า Sign Up
-        # ซึ่งเเสดงว่าเขาเข้ามาถูก
-        self.assertIn('Sign Up', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h2').text
-        self.assertIn('Sign up into Website', header_text)
+    self.browser.get(self.live_server_url + '/signup')
+    # เขาเห็นว่า title มีชื่อว่า Sign Up
+    # ซึ่งเเสดงว่าเขาเข้ามาถูก
+    self.assertIn('Sign Up', self.browser.title)
+    header_text = self.browser.find_element_by_tag_name('h2').text
+    self.assertIn('Sign up into Website', header_text)
 
-        # เขาจึงใส่ username เป็น detmonmok
-        inputusername = self.browser.find_element_by_id('id_username')
-        inputusername.send_keys('detmonohm')
+    # เขาจึงใส่ username เป็น detmonmok
+    inputusername = self.browser.find_element_by_id('id_username')
+    inputusername.send_keys('detmonohm')
 
-        # ต่อมาเขาใส่รหัสเป็น mok123456789
-        inputpassword = self.browser.find_element_by_id('id_password1')
-        inputpassword.send_keys('ohm123456789')
-        inputpassword2 = self.browser.find_element_by_id('id_password2')
-        inputpassword2.send_keys('ohm123456789')
+    # ต่อมาเขาใส่รหัสเป็น mok123456789
+    inputpassword = self.browser.find_element_by_id('id_password1')
+    inputpassword.send_keys('ohm123456789')
+    inputpassword2 = self.browser.find_element_by_id('id_password2')
+    inputpassword2.send_keys('ohm123456789')
 
-        # เขาจึงกดปุ่ม Enter
-        inputpassword2.send_keys(Keys.ENTER)
-        time.sleep(1)
+    # เขาจึงกดปุ่ม Enter
+    inputpassword2.send_keys(Keys.ENTER)
+    time.sleep(1)
 
+    self.browser.get(self.live_server_url + '/account/login/')
 
-        self.browser.get(self.live_server_url + '/account/login/')
+    # เขาพิมพ์ Username เเละ password ลงไป
+    # เขาจึงใส่ username เป็น moklnwza
+    inputusername = self.browser.find_element_by_id('id_username')
+    inputusername.send_keys('detmonohm')
 
-        # เขาพิมพ์ Username เเละ password ลงไป
-        # เขาจึงใส่ username เป็น moklnwza
-        inputusername = self.browser.find_element_by_id('id_username')
-        inputusername.send_keys('detmonohm')
+    # ต่อมาเขาใส่รหัสเป็น Mokza007
+    inputpassword = self.browser.find_element_by_id('id_password')
+    inputpassword.send_keys('ohm123456789')
 
-        # ต่อมาเขาใส่รหัสเป็น Mokza007
-        inputpassword = self.browser.find_element_by_id('id_password')
-        inputpassword.send_keys('ohm123456789')
+    # จากนั้นเขาจึงกดปุ่ม Enter
+    inputpassword.send_keys(Keys.ENTER)
+    time.sleep(1)
 
-        # จากนั้นเขาจึงกดปุ่ม Enter
-        inputpassword.send_keys(Keys.ENTER)
-        time.sleep(1)
+    # From then, he added the names of subjects that he was not good at anymore
 
+    self.browser.get(self.live_server_url + '/view_profile/kitsanapong')
+    header_text = self.browser.find_element_by_tag_name('h3').text
+    self.assertIn('Review', header_text)
+    sub_header_text = self.browser.find_element_by_tag_name('h3').text
+    self.assertIn('Leave a review', sub_header_text)
+    inputbox = self.browser.find_element_by_id('id_review')
+    self.assertEqual(
+        inputbox.get_attribute('placeholder'),
+        'Write Your Message Here'
+    )
+    inputbox.send_keys("He is a nice person and good at teaching")
+    inputbox.send_keys(Keys.ENTER)
+    time.sleep(1)
+    table = self.browser.find_element_by_id('id_list_review')
+    rows = table.find_elements_by_tag_name('tr')
+    self.assertIn('detmonohm : He is a nice person and good at teaching', [row.text for row in rows])
+    self.fail('Finish the test!')
 
-        # From then, he added the names of subjects that he was not good at anymore
-
-        self.browser.get(self.live_server_url+'/view_profile/kitsanapong')
-        header_text = self.browser.find_element_by_tag_name('h3').text
-        self.assertIn('Review', header_text)
-        sub_header_text = self.browser.find_element_by_tag_name('h3').text
-        self.assertIn('Leave a review', sub_header_text)
-        inputbox = self.browser.find_element_by_id('id_review')
-        self.assertEqual(
-            inputbox.get_attribute('placeholder'),
-            'Write Your Message Here'
-        )
-        inputbox.send_keys("He is a nice person and good at teaching")
-        inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
-        table = self.browser.find_element_by_id('id_list_review')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('detmonohm : He is a nice person and good at teaching', [row.text for row in rows])
-        self.fail('Finish the test!')
 
 #        # He click on Profile button
 #         buttontoprofile = self.browser.find_element_by_id('id_to_profile')
 #         buttontoprofile.send_keys(Keys.ENTER)
 #         self.browser.get('http://localhost:8000/profile')
-        # He saw that the header of this website is My profile
+# He saw that the header of this website is My profile
 #        pheader_text = self.browser.find_element_by_tag_name('h2').text
 #        self.assertIn('My Profile', pheader_text)
-        # He type his favorite subject
-        # He type "Math2" and "Biology" into the Text box
+# He type his favorite subject
+# He type "Math2" and "Biology" into the Text box
 #        inputbox = self.browser.find_element_by_id('id_new_subject')
 #        inputbox.send_keys('Math2')
 #        inputbox.send_keys(Keys.ENTER)
@@ -338,7 +336,7 @@ def test_to_review(self):
 #        inputbox.send_keys(Keys.ENTER)
 #        time.sleep(1)
 
-        # The page shows both subject on his list
+# The page shows both subject on his list
 #        table = self.browser.find_element_by_id('id_list_table')
 #        rows = table.find_elements_by_tag_name('tr')
 #        self.assertIn('1: Math2', [row.text for row in rows])
@@ -346,7 +344,7 @@ def test_to_review(self):
 #            '2: Biology',
 #             [row.text for row in rows]
 #        )
-        # He select Biology and Math2 subject for remove and press remove
+# He select Biology and Math2 subject for remove and press remove
 #        checkbox1 = self.browser.find_element_by_id('new_subject1')
 #        checkbox1.send_keys(Keys.SPACE)
 #        checkbox2 = self.browser.find_element_by_id('new_subject2')

@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse, resolve
 from match.views import *
-from match.models import Human, Subject, Wantmatch, Review, Matched, Chatroomname, Tutor, Student, chatlog
+from match.models import Human, Subject, Wantmatch, Review, Matched, Chatroomname, Tutor, Student, Chatlog
 
 
 class HomePageTest(TestCase):
@@ -330,12 +330,12 @@ class ChattingTest(TestCase):
         self.assertTemplateUsed(response, template_name='chat/room.html')
 
     def test_chatlog_db(self):
-        test_room = chatlog.objects.create(chatroom='room1')
+        test_room = Chatlog.objects.create(chatroom='room1')
         test_chatlog = 'Example_Chatlog_1'
         test_room.chatlo = test_chatlog
         test_room.save()
 
-        all_user = chatlog.objects.all()
+        all_user = Chatlog.objects.all()
         roomtest1 = all_user[0]
 
         self.assertEqual(all_user.count(), 1)
