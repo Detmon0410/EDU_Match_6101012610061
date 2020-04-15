@@ -44,7 +44,7 @@ class ChatConsumer(WebsocketConsumer):
     def chat_message(self, event):
         message = event['message']
         Chat = Chatlog.objects.get(chatroom=self.room_name)
-        Chat.chatlo += message + '\n'
+        Chat.chatlog += message + '\n'
         Chat.save()
         # Send message to WebSocket
         self.send(text_data=json.dumps({

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
+    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/consumers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functional_tests/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/functional_tests/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,7 @@
       <workItem from="1582551091244" duration="7334000" />
       <workItem from="1582768294618" duration="3081000" />
       <workItem from="1582771712396" duration="267000" />
-      <workItem from="1586931833653" duration="1154000" />
+      <workItem from="1586931833653" duration="2547000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -280,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586932379438</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class">
+      <created>1586933018588</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1586933018588</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +311,8 @@
     <MESSAGE value="Add background in see tutor profile , recieve profile , friend profile" />
     <MESSAGE value="Add help page" />
     <MESSAGE value="Rename Model class &quot;human&quot; to &quot;Human&quot; and rewrite all calling Human class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename Model class &quot;human&quot; to &quot;Human&quot; and rewrite all calling Human class" />
+    <MESSAGE value="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -315,10 +320,10 @@
     </state>
     <state x="478" y="211" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1325.741@0.27.1325.741" timestamp="1581873852939" />
     <state x="693" y="275" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1000@0.27.1920.1000" timestamp="1585065729033" />
-    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2" timestamp="1586932379069">
+    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2" timestamp="1586935555045">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1586932379069" />
+    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1586935555045" />
     <state x="589" y="72" width="777" height="657" key="CommitChangelistDialog2/0.27.1366.702@0.27.1366.702" timestamp="1585159062540" />
     <state x="625" y="61" width="777" height="807" key="CommitChangelistDialog2/0.27.1920.1000@0.27.1920.1000" timestamp="1580673952836" />
     <state x="466" y="135" width="468" height="518" key="FileChooserDialogImpl" timestamp="1585157716618">

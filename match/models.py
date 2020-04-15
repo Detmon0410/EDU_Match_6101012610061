@@ -53,7 +53,7 @@ class Student(models.Model):
 
 class Chatlog(models.Model):
     chatroom = models.CharField(max_length=300)
-    chatlo = models.CharField(max_length=30000000)
+    chatlog = models.CharField(max_length=30000000)
 
 
 class Profile(models.Model):
