@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class human(models.Model):
+class Human(models.Model):
 
     name = models.CharField(max_length=300)
     subject = models.ManyToManyField('Subject')
@@ -57,7 +57,7 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 class Review(models.Model):
-    post = models.ForeignKey(human, on_delete=models.CASCADE, related_name='comments',null=True)
+    post = models.ForeignKey(Human, on_delete=models.CASCADE, related_name='comments',null=True)
     created_on = models.DateTimeField(auto_now_add=True,null=True)
     realname=models.CharField(max_length=300)
     message = models.CharField(max_length=300)

@@ -3,11 +3,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
+
 # Sign Up Form
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional')
     last_name = forms.CharField(max_length=30, required=False, help_text='Optional')
     email = forms.EmailField(max_length=254, help_text='Enter a valid email address')
+
     class Meta:
         model = User
         fields = [
@@ -17,12 +19,11 @@ class SignUpForm(UserCreationForm):
             'email',
             'password1',
             'password2',
-            ]
+        ]
 
 
 # Profile Form
 class ProfileForm(forms.ModelForm):
-
     class Meta:
         model = User
 
@@ -30,9 +31,10 @@ class ProfileForm(forms.ModelForm):
             'first_name',
             'last_name',
             'email',
-            ]
+        ]
+
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image',]
+        fields = ['image', ]

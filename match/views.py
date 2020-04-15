@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 # Add
 from django.contrib import messages
 
-from match.models import human,Subject,Matched,Wantmatch,Profile,Tutor,Student,Review,Chatroomname
+from match.models import Human,Subject,Matched,Wantmatch,Profile,Tutor,Student,Review,Chatroomname
 
 from django.urls import reverse_lazy
 from django.views.generic import CreateView , UpdateView
@@ -18,10 +18,10 @@ def home(request):
 
     if request.user.is_authenticated:
         username = request.user.username
-        if not human.objects.filter(name=username).exists():
-            User1 = human(name=username)
+        if not Human.objects.filter(name=username).exists():
+            User1 = Human(name=username)
             User1.save()
-        currentu=human.objects.get(name=request.user.username)
+        currentu=Human.objects.get(name=request.user.username)
         wantmatchcount=currentu.wantmatch.all().count
         return render(request, 'home.html', {
             'new_subject': request.POST.get('item_subject', ''), 'wantmatchcount': wantmatchcount, "count":count
@@ -62,7 +62,7 @@ def ProfileView(request):
     else:
         form_class = ProfileForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-    User1=human.objects.get(name=request.user.username)
+    User1=Human.objects.get(name=request.user.username)
     meanstar = 0
     usercommall = Review.objects.filter(post=User1)
     if usercommall.count() > 0:
@@ -87,7 +87,7 @@ def about_group(request):
 
 def request_match(request):
     Nosent="No one sent you a matching"
-    User1= human.objects.get(name=request.user.username)
+    User1= Human.objects.get(name=request.user.username)
     if User1.wantmatch.all() :
         allwantmatch=User1.wantmatch.all()
         return render(request,"recievematch.html",{'allwantmatch': allwantmatch, 'count' : allwantmatch.count()})
@@ -96,7 +96,7 @@ def request_match(request):
 #เข้าหน้า My tutor$student
 def friendmatched(request):
     Nomatched = "You didn't match anyone"
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     if User1.tutor.all() or User1.student.all():
         alltutor = User1.tutor.all()
         allstudent = User1.student.all()
@@ -109,7 +109,7 @@ def friendprofile(request,name):
     Selecteduser = User.objects.get_by_natural_key(name)
     username = Selecteduser.username
 
-    User1 = human.objects.get(name=name)
+    User1 = Human.objects.get(name=name)
     sorted = [str(Selecteduser.username), str(request.user.username)]
     sorted.sort()
     print(sorted[0])
@@ -118,8 +118,8 @@ def friendprofile(request,name):
         chatname = Chatroomname.objects.create(name=sorted[0] + sorted[1])
         chatname.save()
         chatnamer = Chatroomname.objects.get(name=sorted[0] + sorted[1])
-        human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
-        human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
+        Human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
+        Human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
     User2=''
     for i in User1.chatroomname.all():
         if (request.user.username in i.name ) and (name in i.name):
@@ -145,7 +145,7 @@ def write_review_matched(request,profilename):
     user_profile = user.profile.image.url
     Selecteduser = User.objects.get_by_natural_key(profilename)
     username = Selecteduser.username
-    User1 = human.objects.get(name=profilename)
+    User1 = Human.objects.get(name=profilename)
     User2 = ''
     for i in User1.chatroomname.all():
         if (request.user.username in i.name) and (profilename in i.name):
@@ -188,9 +188,9 @@ def view_r_profile(request,name):
         chatname = Chatroomname.objects.create(name=sorted[0] + sorted[1])
         chatname.save()
         chatnamer = Chatroomname.objects.get(name=sorted[0] + sorted[1])
-        human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
-        human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
-    User1 = human.objects.get(name=name)
+        Human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
+        Human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
+    User1 = Human.objects.get(name=name)
     User2 = ''
     for i in User1.chatroomname.all():
         if (request.user.username in i.name) and (name in i.name):
@@ -229,9 +229,9 @@ def view_other_profile(request,name):
         chatname = Chatroomname.objects.create(name=sorted[0] + sorted[1])
         chatname.save()
         chatnamer = Chatroomname.objects.get(name=sorted[0] + sorted[1])
-        human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
-        human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
-    User1 = human.objects.get(name=name)
+        Human.objects.get(name=sorted[0]).chatroomname.add(chatnamer)
+        Human.objects.get(name=sorted[1]).chatroomname.add(chatnamer)
+    User1 = Human.objects.get(name=name)
     User2=''
     for i in User1.chatroomname.all():
         if (request.user.username in i.name ) and (name in i.name):
@@ -279,9 +279,9 @@ def matching(request, name):
         firstwm = Wantmatch(name=request.user.username)
         firstwm.save()
     fwantmatch = Wantmatch.objects.get(name=request.user.username)
-    human.objects.get(name=name).wantmatch.add(fwantmatch)
+    Human.objects.get(name=name).wantmatch.add(fwantmatch)
     User2 = ''
-    User1 = human.objects.get(name=name)
+    User1 = Human.objects.get(name=name)
     for i in User1.chatroomname.all():
         if (request.user.username in i.name) and (name in i.name):
             User2 = i.name
@@ -334,9 +334,9 @@ def unmatching(request, name):
     user = User.objects.filter(username=username).first()
     user_profile = user.profile.image.url
 
-    User1 = human.objects.get(name=name)
-    # User1= human.objects.get(pk=1).delete()
-    User2 = get_object_or_404(human, name=name)
+    User1 = Human.objects.get(name=name)
+    # User1= Human.objects.get(pk=1).delete()
+    User2 = get_object_or_404(Human, name=name)
     selected_unmatch = User2.wantmatch.get(name=request.user.username)
     User2.wantmatch.remove(selected_unmatch)
 
@@ -384,7 +384,7 @@ def write_review(request,profilename):
     user_profile = user.profile.image.url
     Selecteduser = User.objects.get_by_natural_key(profilename)
     username = Selecteduser.username
-    User1 = human.objects.get(name=profilename)
+    User1 = Human.objects.get(name=profilename)
     User2 = ''
     for i in User1.chatroomname.all():
         if (request.user.username in i.name) and (profilename in i.name):
@@ -441,7 +441,7 @@ def write_review(request,profilename):
 ##### end other_profile.html
 
 def unfriendmatched(request,name):
-    myself = get_object_or_404(human, name=request.user.username)
+    myself = get_object_or_404(Human, name=request.user.username)
     if myself.student.filter(name=name).exists():
         Selunmatched=myself.student.get(name=name)
         myself.student.remove(Selunmatched)
@@ -449,7 +449,7 @@ def unfriendmatched(request,name):
         Selunmatched2=myself.tutor.get(name=name)
         myself.tutor.remove(Selunmatched2)
 
-    User2 = get_object_or_404(human, name=name)
+    User2 = get_object_or_404(Human, name=name)
     if User2.tutor.filter(name=request.user.username).exists():
         Selunmatched3=User2.tutor.get(name=request.user.username)
         User2.tutor.remove(Selunmatched3)
@@ -461,7 +461,7 @@ def unfriendmatched(request,name):
 
     myself.tutor.all()
     Nomatched = "You didn't match anyone"
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     if User1.tutor.all() or User1.student.all():
         alltutor = User1.tutor.all()
         allstudent = User1.student.all()
@@ -472,10 +472,10 @@ def unfriendmatched(request,name):
 def acceptmatch(request,name):
     Selecteduser = User.objects.get_by_natural_key(request.user.username)
     username = Selecteduser.username
-    User1 = human.objects.get(name=request.user.username)
-    # User1= human.objects.get(pk=1).delete()
-    tutorself = get_object_or_404(human, name=request.user.username)
-    studentself = get_object_or_404(human, name=name)
+    User1 = Human.objects.get(name=request.user.username)
+    # User1= Human.objects.get(pk=1).delete()
+    tutorself = get_object_or_404(Human, name=request.user.username)
+    studentself = get_object_or_404(Human, name=name)
     selected_unmatch = tutorself.wantmatch.get(name=name)
     tutorself.wantmatch.remove(selected_unmatch)
     if not Student.objects.filter(name=name).exists():
@@ -489,7 +489,7 @@ def acceptmatch(request,name):
     tutorself.student.add(fstudent)
     studentself.tutor.add(ftutor)
     Nosent = "No one sent you a matching"
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     if User1.wantmatch.all():
         allwantmatch = User1.wantmatch.all()
         return render(request, "recievematch.html", {'allwantmatch': allwantmatch, 'count': allwantmatch.count()})
@@ -498,13 +498,13 @@ def acceptmatch(request,name):
 def declinematch(request,name):
     Selecteduser = User.objects.get_by_natural_key(request.user.username)
     username = Selecteduser.username
-    User1 = human.objects.get(name=request.user.username)
-    # User1= human.objects.get(pk=1).delete()
-    User2 = get_object_or_404(human, name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
+    # User1= Human.objects.get(pk=1).delete()
+    User2 = get_object_or_404(Human, name=request.user.username)
     selected_unmatch = User2.wantmatch.get(name=name)
     User2.wantmatch.remove(selected_unmatch)
     Nosent = "No one sent you a matching"
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     if User1.wantmatch.all():
         allwantmatch = User1.wantmatch.all()
         return render(request, "recievematch.html", {'allwantmatch': allwantmatch, 'count': allwantmatch.count()})
@@ -512,7 +512,7 @@ def declinematch(request,name):
 
 def searching(request):
     count = User.objects.count()
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     subjectin=request.POST.get('item_subject2', '')
     subject1=subjectin.lower().strip().replace(" ", "")
     if not Subject.objects.filter(name=subject1).exclude(name=(subject.name for subject in User1.subject.all())).exists():
@@ -538,7 +538,7 @@ def searching(request):
 
 
 def profile_add_subject(request):
-    User1 = human.objects.get(name=request.user.username)
+    User1 = Human.objects.get(name=request.user.username)
     checkremovebutton = 0
     if User1.subject.all().count() > 0:
         checkremovebutton = 1
@@ -553,12 +553,12 @@ def add_subject(request):
         if not Subject.objects.filter(name=subject).exists():
             firstsubject = Subject(name=subject)
             firstsubject.save()
-        if not human.objects.filter(name=request.user.username).exists():
-            User1 = human(name=request.user.username)
+        if not Human.objects.filter(name=request.user.username).exists():
+            User1 = Human(name=request.user.username)
             User1.save()
         fsubject = Subject.objects.get(name=subject)
-        human.objects.get(name=request.user.username).subject.add(fsubject)
-        User1 = human.objects.get(name=request.user.username)
+        Human.objects.get(name=request.user.username).subject.add(fsubject)
+        User1 = Human.objects.get(name=request.user.username)
         checkremovebutton=0
         if User1.subject.all().count() >0:
             checkremovebutton=1
@@ -567,7 +567,7 @@ def add_subject(request):
         })
     else:
         fillyourbox="Type your expert subject"
-        User1 = human.objects.get(name=request.user.username)
+        User1 = Human.objects.get(name=request.user.username)
         checkremovebutton = 0
         if User1.subject.all().count() > 0:
             checkremovebutton = 1
@@ -576,8 +576,8 @@ def add_subject(request):
         })
 
 def clean_model(request):
-    User1 = human.objects.get(name=request.user.username)
-    #User1= human.objects.get(pk=1).delete()
+    User1 = Human.objects.get(name=request.user.username)
+    #User1= Human.objects.get(pk=1).delete()
     new_subject_list = request.POST.getlist('new_subject')
     checkremovebutton = 0
 
@@ -591,7 +591,7 @@ def clean_model(request):
             'checkremovebutton':checkremovebutton
         })
     else:
-        User2 = get_object_or_404(human, name=request.user.username)
+        User2 = get_object_or_404(Human, name=request.user.username)
         for index in new_subject_list:
             print(index)
             selected_subject = User2.subject.get(pk=index)
