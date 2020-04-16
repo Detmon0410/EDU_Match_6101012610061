@@ -44,7 +44,7 @@ class SignUpPageTests(TestCase):
 
     def test_signup_url_resolve_to_sign_up_view(self):
         found = resolve("/signup/")
-        self.assertEqual(found.func, SignUpView)
+        self.assertEqual(found.func, sign_up_view())
 
     def test_sign_up_form(self):
         response = self.client.post("/signup/", {
@@ -72,11 +72,11 @@ class ProfilePageTests(TestCase):
         self.client.login(username='testuser', password='Password12345')
 
         found = resolve("/profile/")
-        self.assertEqual(found.func, ProfileView)
+        self.assertEqual(found.func, profile_view)
 
     def test_profile_url_resolve_to_profile_view(self):
         found = resolve("/profile/")
-        self.assertEqual(found.func, ProfileView)
+        self.assertEqual(found.func, profile_view)
 
     def test_profile_form(self):
         self.user1 = User.objects.create_user(username='testuser',
