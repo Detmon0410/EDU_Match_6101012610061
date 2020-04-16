@@ -1,5 +1,5 @@
 from django.urls import path,include
-from match.views import SignUpView , ProfileView
+from match.views import sign_up_view , profile_view
 from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
@@ -11,15 +11,15 @@ urlpatterns = [
     # ex: /match/
     path('chat/', include('chat.urls')),
     path('', views.home, name='home'),
-    path('signup/',views.SignUpView, name='SignUpView'),
-    path('profile/', views.ProfileView, name='ProfileView'),
+    path('signup/',views.sign_up_view, name='SignUpView'),
+    path('profile/', views.profile_view, name='ProfileView'),
     path('view_profile/<str:name>', views.view_other_profile, name='view_profile'),
     path('view_profile_R/<str:name>', views.view_r_profile, name='view_profile_R'),
-    path('friendmatched/', views.friendmatched, name='friendmatched'),
-    path('friendprofile/<str:name>', views.friendprofile, name='friendprofile'),
-    path('unmatched/<str:name>', views.unfriendmatched, name='unmatched'),
-    path('acceptmatch/<str:name>', views.acceptmatch, name='acceptM'),
-    path('declinematch/<str:name>', views.declinematch, name='declineM'),
+    path('friendmatched/', views.friend_matched, name='friendmatched'),
+    path('friendprofile/<str:name>', views.friend_profile, name='friendprofile'),
+    path('unmatched/<str:name>', views.un_friend_matched, name='unmatched'),
+    path('acceptmatch/<str:name>', views.accept_match, name='acceptM'),
+    path('declinematch/<str:name>', views.de_cline_match, name='declineM'),
     path('matching/<str:name>', views.matching, name='matching'),
     path('request_match/', views.request_match, name='request_match'),
     path('unmatching/<str:name>', views.unmatching, name='unmatching'),
