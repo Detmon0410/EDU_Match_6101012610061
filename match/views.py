@@ -95,12 +95,12 @@ def about_group(request):  # this func show group info
 
 
 def request_match(request):  # this func will made you can request match to other user
-    Nosent = "No one sent you a matching"
+    nosent = "No one sent you a matching"
     user1 = Human.objects.get(name=request.user.username)
     if user1.wantmatch.all():
         allwantmatch = user1.wantmatch.all()
         return render(request, "recievematch.html", {'allwantmatch': allwantmatch, 'count': allwantmatch.count()})
-    return render(request, "recievematch.html", {'Nosent': Nosent})
+    return render(request, "recievematch.html", {'Nosent': nosent})
 
 
 # เข้าหน้า My tutor$student
@@ -526,12 +526,12 @@ def accept_match(request, name):  # this func made you can accept matrequest
     ftutor = Tutor.objects.get(name=request.user.username)
     tutorself.student.add(fstudent)
     studentself.tutor.add(ftutor)
-    Nosent = "No one sent you a matching"
+    nosent = "No one sent you a matching"
     user1 = Human.objects.get(name=request.user.username)
     if user1.wantmatch.all():
         allwantmatch = user1.wantmatch.all()
         return render(request, "recievematch.html", {'allwantmatch': allwantmatch, 'count': allwantmatch.count()})
-    return render(request, "recievematch.html", {'Nosent': Nosent})
+    return render(request, "recievematch.html", {'Nosent': nosent})
 
 
 def de_cline_match(request, name):  # this func will made you can decline match request
@@ -542,12 +542,12 @@ def de_cline_match(request, name):  # this func will made you can decline match 
     user2 = get_object_or_404(Human, name=request.user.username)
     selected_unmatch = user2.wantmatch.get(name=name)
     user2.wantmatch.remove(selected_unmatch)
-    Nosent = "No one sent you a matching"
+    nosent = "No one sent you a matching"
     user1 = Human.objects.get(name=request.user.username)
     if user1.wantmatch.all():
         allwantmatch = user1.wantmatch.all()
         return render(request, "recievematch.html", {'allwantmatch': allwantmatch, 'count': allwantmatch.count()})
-    return render(request, "recievematch.html", {'Nosent': Nosent})
+    return render(request, "recievematch.html", {'Nosent': nosent})
 
 
 def searching(request):  # this func madeyou can search subject
