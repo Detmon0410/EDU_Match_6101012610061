@@ -9,7 +9,8 @@ def index(request):
     return render(request, 'chat/index.html', {})
 
 
-def room(request, room_name):
+def room(request, room_name):# function will create coatrooms
+
     if not Chatlog.objects.filter(chatroom=room_name).exists():
         chat = Chatlog.objects.create(chatroom=room_name)
         chat.save()
@@ -26,3 +27,4 @@ def room(request, room_name):
     return render(request, 'chat/room.html', {
         'room_name': room_name, 'old_message': sum
     })
+    # filter chatlog to show in text area

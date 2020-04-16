@@ -4,12 +4,13 @@ from channels.generic.websocket import WebsocketConsumer
 import json
 from match.models import Chatlog
 
+
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         if not Chatlog.objects.filter(chatroom=self.room_name).exists():
-            Chat=Chatlog.objects.create(chatroom= self.room_name)
+            Chat = Chatlog.objects.create(chatroom=self.room_name)
             Chat.save()
         # Join room group
         async_to_sync(self.channel_layer.group_add)(

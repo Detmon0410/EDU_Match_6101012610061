@@ -12,7 +12,10 @@ from django.views.generic import CreateView, UpdateView
 from match.forms import SignUpForm, ProfileForm, ProfileUpdateForm
 
 
-def home(request):
+# rename all functions
+# rename all value
+
+def home(request):  # this func will be index page
     count = User.objects.count()
     username = None
 
@@ -28,6 +31,7 @@ def home(request):
         })
     else:
         return redirect('login')
+    # this code will show register user
 
 
 # Sign Up View
@@ -35,7 +39,7 @@ def home(request):
 # form_class = SignUpForm
 # success_url = reverse_lazy('login')
 # template_name = 'registration/signup.html'
-def sign_up_view(request):
+def sign_up_view(request):  # will lead user to register page
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -50,7 +54,7 @@ def sign_up_view(request):
 
 
 # Edit Profile View
-def profile_view(request):
+def profile_view(request):  # this func will show your profiles
     if request.method == 'POST':
         form_class = ProfileForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
@@ -82,15 +86,15 @@ def profile_view(request):
 # success_url = reverse_lazy('home')
 # template_name = 'registration/profile.html'
 
-def about_app(request):
+def about_app(request):  # this func show app info
     return render(request, 'aboutus/about_app.html')
 
 
-def about_group(request):
+def about_group(request):  # this func show group info
     return render(request, 'aboutus/about_group.html')
 
 
-def request_match(request):
+def request_match(request):  # this func will made you can request match to other user
     Nosent = "No one sent you a matching"
     user1 = Human.objects.get(name=request.user.username)
     if user1.wantmatch.all():
@@ -100,7 +104,7 @@ def request_match(request):
 
 
 # เข้าหน้า My tutor$student
-def friend_matched(request):
+def friend_matched(request):  # rename functions
     nomatched = "You didn't match anyone"
     user1 = Human.objects.get(name=request.user.username)
     if user1.tutor.all() or user1.student.all():
@@ -113,7 +117,7 @@ def friend_matched(request):
     return render(request, "Friend_matched.html", {'Nomatched': nomatched})
 
 
-def friend_profile(request, name):
+def friend_profile(request, name):  # this func will show match user profiles
     selecteduser = User.objects.get_by_natural_key(name)
     username = selecteduser.username
 
@@ -149,7 +153,8 @@ def friend_profile(request, name):
                                                    'user_profile': user_profile, 'id': user2, 'meanstar': meanstar})
 
 
-def write_review_matched(request, profilename):
+def write_review_matched(request, profilename):  # this func will show reveiw from other user
+
     user = User.objects.filter(username=profilename).first()
     user_profile = user.profile.image.url
     selecteduser = User.objects.get_by_natural_key(profilename)
@@ -188,7 +193,7 @@ def write_review_matched(request, profilename):
                                                        'user_profile': user_profile})
 
 
-def view_r_profile(request, name):
+def view_r_profile(request, name):  # this func will show match request from other user
     selecteduser = User.objects.get_by_natural_key(name)
     username = selecteduser.username
 
@@ -234,7 +239,7 @@ def view_r_profile(request, name):
 
 ### other_perofile.html
 
-def view_other_profile(request, name):
+def view_other_profile(request, name):  # this func will show other userpro files
     selecteduser = User.objects.get_by_natural_key(name)
     username = selecteduser.username
 
@@ -290,7 +295,7 @@ def view_other_profile(request, name):
                                                           'user_profile': user_profile, 'meanstar': meanstar})
 
 
-def matching(request, name):
+def matching(request, name):  # this func will made you can request matching to other user
     selecteduser = User.objects.get_by_natural_key(name)
     username = selecteduser.username
 
@@ -349,7 +354,7 @@ def matching(request, name):
                                                           'user_profile': user_profile, 'meanstar': meanstar})
 
 
-def unmatching(request, name):
+def unmatching(request, name):  # this func will made you can unmatch other user
     selecteduser = User.objects.get_by_natural_key(name)
     username = selecteduser.username
 
@@ -403,7 +408,7 @@ def unmatching(request, name):
                                                           'user_profile': user_profile, 'meanstar': meanstar})
 
 
-def write_review(request, profilename):
+def write_review(request, profilename):  # this func will made you can writ review and rating to other user
     user = User.objects.filter(username=profilename).first()
     user_profile = user.profile.image.url
     selecteduser = User.objects.get_by_natural_key(profilename)
@@ -473,7 +478,7 @@ def write_review(request, profilename):
 
 ##### end other_profile.html
 
-def un_friend_matched(request, name):
+def un_friend_matched(request, name):  # this func will made you can unmatch in tutor/student page
     myself = get_object_or_404(Human, name=request.user.username)
     if myself.student.filter(name=name).exists():
         Selunmatched = myself.student.get(name=name)
@@ -502,7 +507,7 @@ def un_friend_matched(request, name):
     return render(request, "Friend_matched.html", {'Nomatched': Nomatched})
 
 
-def accept_match(request, name):
+def accept_match(request, name):  # this func made you can accept matrequest
     selecteduser = User.objects.get_by_natural_key(request.user.username)
     username = selecteduser.username
     user1 = Human.objects.get(name=request.user.username)
@@ -529,7 +534,7 @@ def accept_match(request, name):
     return render(request, "recievematch.html", {'Nosent': Nosent})
 
 
-def de_cline_match(request, name):
+def de_cline_match(request, name):  # this func will made you can decline match request
     selecteduser = User.objects.get_by_natural_key(request.user.username)
     username = selecteduser.username
     user1 = Human.objects.get(name=request.user.username)
@@ -545,7 +550,7 @@ def de_cline_match(request, name):
     return render(request, "recievematch.html", {'Nosent': Nosent})
 
 
-def searching(request):
+def searching(request):  # this func madeyou can search subject
     count = User.objects.count()
     user1 = Human.objects.get(name=request.user.username)
     subjectin = request.POST.get('item_subject2', '')
@@ -574,7 +579,7 @@ def searching(request):
                   {'usertutorstu': second, 'userins': first, 'count': count, 'subjectin': subjectin})
 
 
-def profile_add_subject(request):
+def profile_add_subject(request):  # this func will lead you to subject page
     user1 = Human.objects.get(name=request.user.username)
     checkremovebutton = 0
     if user1.subject.all().count() > 0:
@@ -584,7 +589,7 @@ def profile_add_subject(request):
     })
 
 
-def add_subject(request):
+def add_subject(request):  # this func will made you can add expert subject
     subject = request.POST.get('item_subject', '')
     subject = subject.lower().strip().replace(" ", "")
     if subject != '':
@@ -645,9 +650,9 @@ def clean_model(request):
         return render(request, 'add_subject.html', {'User': user1, 'checkremovebutton': checkremovebutton})
 
 
-def change_password_done(request):
+def change_password_done(request):  # this func will lead you to change password done page
     return render(request, 'registration/change_password_done.html')
 
 
-def help_app(request):
+def help_app(request):  # this func will lead you to help page
     return render(request, 'help.html')

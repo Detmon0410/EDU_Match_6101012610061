@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -141,7 +143,7 @@
       <workItem from="1582551091244" duration="7334000" />
       <workItem from="1582768294618" duration="3081000" />
       <workItem from="1582771712396" duration="267000" />
-      <workItem from="1586931833653" duration="4435000" />
+      <workItem from="1586931833653" duration="10657000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -297,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587020940504</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Edit urls.py :call new name functions in views.py">
+      <created>1587021307610</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587021307610</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +336,8 @@
     <MESSAGE value="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class" />
     <MESSAGE value="Edit models.py :rename variable in Chatlog class" />
     <MESSAGE value="Edit views.py :rename variable set to lowercase ,Functions set to lowercase and split word by _" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py :rename variable set to lowercase ,Functions set to lowercase and split word by _" />
+    <MESSAGE value="Edit urls.py :call new name functions in views.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit urls.py :call new name functions in views.py" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -335,10 +345,10 @@
     </state>
     <state x="478" y="211" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1325.741@0.27.1325.741" timestamp="1581873852939" />
     <state x="693" y="275" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1000@0.27.1920.1000" timestamp="1585065729033" />
-    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2" timestamp="1587020940388">
+    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2" timestamp="1587021307510">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587020940388" />
+    <state x="269" y="27" width="754" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587021307510" />
     <state x="589" y="72" width="777" height="657" key="CommitChangelistDialog2/0.27.1366.702@0.27.1366.702" timestamp="1585159062540" />
     <state x="625" y="61" width="777" height="807" key="CommitChangelistDialog2/0.27.1920.1000@0.27.1920.1000" timestamp="1580673952836" />
     <state x="466" y="135" width="468" height="518" key="FileChooserDialogImpl" timestamp="1585157716618">
@@ -374,10 +384,10 @@
       <screen x="0" y="27" width="1366" height="702" />
     </state>
     <state x="459" y="69" width="438" height="615" key="RollbackChangesDialog/0.27.1366.702@0.27.1366.702" timestamp="1585118756557" />
-    <state x="0" y="27" width="1325" height="741" key="SettingsEditor" timestamp="1582770406154">
+    <state x="0" y="27" width="1325" height="741" key="SettingsEditor" timestamp="1587022560264">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="0" y="27" width="1325" height="741" key="SettingsEditor/0.27.1325.741@0.27.1325.741" timestamp="1582770406154" />
+    <state x="0" y="27" width="1325" height="741" key="SettingsEditor/0.27.1325.741@0.27.1325.741" timestamp="1587022560264" />
     <state x="203" y="27" width="1012" height="702" key="SettingsEditor/0.27.1366.702@0.27.1366.702" timestamp="1582227809709" />
     <state x="202" y="27" width="1423" height="1000" key="SettingsEditor/0.27.1920.1000@0.27.1920.1000" timestamp="1580334711947" />
     <state x="207" y="32" key="SettingsEditor/70.27.1296.741@70.27.1296.741" timestamp="1579115344094" />
