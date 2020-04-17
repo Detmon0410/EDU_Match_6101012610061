@@ -9,7 +9,7 @@ def index(request):
     return render(request, 'chat/index.html', {})
 
 
-def room(request, room_name):# function will create coatrooms
+def room(request, room_name):  # function will create coatrooms
 
     if not Chatlog.objects.filter(chatroom=room_name).exists():
         chat = Chatlog.objects.create(chatroom=room_name)
