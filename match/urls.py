@@ -22,7 +22,7 @@ urlpatterns = [
     path('declinematch/<str:name>', views.de_cline_match, name='declineM'),
     path('matching/<str:name>', views.matching, name='matching'),
     path('request_match/', views.request_match, name='request_match'),
-    path('unmatching/<str:name>', views.unmatching, name='unmatching'),
+    path('unmatching/<str:name>', views.un_matching, name='unmatching'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('profile_add_subject/', views.profile_add_subject,name='profile_add_subject'),
     path('add_subject/', views.add_subject, name='add_subject'),

@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse, resolve
 from match.views import *
-from match.models import Human, Subject, Wantmatch, Review, Matched, Chatroomname, Tutor, Student, Chatlog
+from match.models import Human, Subject, WantMatch, Review, Matched, ChatRoomName, Tutor, Student, ChatLog
 
 
 class HomePageTest(TestCase):
@@ -21,8 +21,8 @@ class HomePageTest(TestCase):
 class HumanModelTest(TestCase):
     def test_saving_fav_subject(self):
         first_user = Human.objects.create(name='first_user')
-        firstsubject = Subject.objects.create(name='first_subject')
-        first_user.subject.add(firstsubject)
+        first_subject = Subject.objects.create(name='first_subject')
+        first_user.subject.add(first_subject)
 
         second_user = Human.objects.create(name='second_user')
         second_subject = Subject.objects.create(name='second_subject')
@@ -64,11 +64,11 @@ class SignUpPageTests(TestCase):
 class ProfilePageTests(TestCase):
 
     def test_profile_page_url(self):
-        self.user1 = User.objects.create_user(username='testuser',
-                                              first_name='firstname',
-                                              password='Password12345',
-                                              email='test@example.com')
-        self.user1.save()
+        self.user_a = User.objects.create_user(username='testuser',
+                                               first_name='firstname',
+                                               password='Password12345',
+                                               email='test@example.com')
+        self.user_a.save()
         self.client.login(username='testuser', password='Password12345')
 
         found = resolve("/profile/")
@@ -79,11 +79,11 @@ class ProfilePageTests(TestCase):
         self.assertEqual(found.func, profile_view)
 
     def test_profile_form(self):
-        self.user1 = User.objects.create_user(username='testuser',
-                                              first_name='firstname',
-                                              password='Password12345',
-                                              email='test@example.com')
-        self.user1.save()
+        self.user_a = User.objects.create_user(username='testuser',
+                                               first_name='firstname',
+                                               password='Password12345',
+                                               email='test@example.com')
+        self.user_a.save()
         self.client.login(username='testuser', password='Password12345')
 
         response = self.client.post("/profile/", {
@@ -99,45 +99,45 @@ class ProfilePageTests(TestCase):
 
 class ChangePasswordPageTest(TestCase):
     def test_change_password_page_url(self):
-        self.user1 = User.objects.create_user(username='testuser',
-                                              first_name='firstname',
-                                              password='Password12345',
-                                              email='test@example.com')
-        self.user1.save()
+        self.user_a = User.objects.create_user(username='testuser',
+                                               first_name='firstname',
+                                               password='Password12345',
+                                               email='test@example.com')
+        self.user_a.save()
         self.client.login(username='testuser', password='Password12345')
 
         response = self.client.get("/accounts/change_password/")
         self.assertTemplateUsed(response, template_name='registration/change_password.html')
 
     def test_change_password_page_form(self):
-        self.user1 = User.objects.create_user(username='testuser',
-                                              first_name='firstname',
-                                              password='Password12345',
-                                              email='test@example.com')
-        self.user1.save()
+        self.user_a = User.objects.create_user(username='testuser',
+                                               first_name='firstname',
+                                               password='Password12345',
+                                               email='test@example.com')
+        self.user_a.save()
         self.client.login(username='testuser', password='Password12345')
 
         users = User.objects.get(username='testuser')
-        hash_password1 = users.password
+        hash_password_first = users.password
 
         users.set_password('Password67890')
         users.save()
 
         hash_password2 = users.password
-        self.assertNotEquals(hash_password1, hash_password2)
+        self.assertNotEquals(hash_password_first, hash_password2)
 
 
-class Addsubject(TestCase):
+class AddSubject(TestCase):
     def test_add_subject(self):
         User.objects.create_user(username='kitsanapong', password='kpassword')
         User.objects.create_user(username='pasakorn', password='mpassword')
         User.objects.create_user(username='detmon123', password='ohmpassword')
         self.client.login(username="kitsanapong", password="kpassword")
-        allsubject = Subject.objects.all()
-        self.assertEqual(allsubject.count(), 0)
+        all_subject = Subject.objects.all()
+        self.assertEqual(all_subject.count(), 0)
         self.client.post(f'/add_subject/', {'item_subject': 'mathematic'})
-        allsubject = Subject.objects.all()
-        self.assertEqual(allsubject.count(), 1)
+        all_subject = Subject.objects.all()
+        self.assertEqual(all_subject.count(), 1)
 
 
 class SearchTest(TestCase):
@@ -149,19 +149,19 @@ class SearchTest(TestCase):
         pasakornh = Human.objects.create(name='pasakorn')
         detmonh = Human.objects.create(name='detmon123')
         # kitsanapong login
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_result = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_result)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_result)
         self.client.login(username="kitsanapong", password="kpassword")
         physic = Subject.objects.create(name='physic')
         pasakornh.subject.add(physic)
         biology = Subject.objects.create(name='biology')
         detmonh.subject.add(biology)
-        useraddphy = self.client.post(f'/write_review/{pasakornh.name}', {'item_subject2': 'physic'})
-        self.assertContains(useraddphy, 'pasakorn')
-        self.assertNotContains(useraddphy, 'detmon123')
+        user_add_physic_subject = self.client.post(f'/write_review/{pasakornh.name}', {'item_subject2': 'physic'})
+        self.assertContains(user_add_physic_subject, 'pasakorn')
+        self.assertNotContains(user_add_physic_subject, 'detmon123')
 
 
 class RequestTest(TestCase):
@@ -173,21 +173,21 @@ class RequestTest(TestCase):
         pasakornh = Human.objects.create(name='pasakorn')
         kitsanapongh = Human.objects.create(name='kitsanapong')
         self.client.login(username="kitsanapong", password="kpassword")
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_result = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_result)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_result)
 
         self.client.post(f'/matching/{pasakornh.name}')
 
-        wmcount = Wantmatch.objects.all()
-        print('wmcount =', wmcount.count())
-        self.assertEqual(wmcount.count(), 1)
+        request_count = WantMatch.objects.all()
+        print('wmcount =', request_count.count())
+        self.assertEqual(request_count.count(), 1)
 
-        firstwm = wmcount[0]
+        first_want_match = request_count[0]
 
-        self.assertEqual(firstwm.name, 'kitsanapong')
+        self.assertEqual(first_want_match.name, 'kitsanapong')
 
     def test_cancel_request(self):
         User.objects.create_user(username='kitsanapong', password='kpassword')
@@ -196,21 +196,21 @@ class RequestTest(TestCase):
         kitsanapongh = Human.objects.create(name='kitsanapong')
         self.client.login(username="kitsanapong", password="kpassword")
 
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_request = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_request)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_request)
 
         self.client.post(f'/matching/{pasakornh.name}')
 
-        wmforpasa = pasakornh.wantmatch.filter(name='kitsanapong')
-        self.assertEqual(wmforpasa.count(), 1)
+        request_to_other = pasakornh.want_match.filter(name='kitsanapong')
+        self.assertEqual(request_to_other.count(), 1)
 
         self.client.post(f'/unmatching/{pasakornh.name}')
 
-        wmforpasa = pasakornh.wantmatch.filter(name='kitsanapong')
-        self.assertEqual(wmforpasa.count(), 0)
+        request_to_other = pasakornh.want_match.filter(name='kitsanapong')
+        self.assertEqual(request_to_other.count(), 0)
 
     def test_accept_request(self):
         User.objects.create_user(username='kitsanapong', password='kpassword')
@@ -221,24 +221,24 @@ class RequestTest(TestCase):
 
         # kitsanapong login
         self.client.login(username="kitsanapong", password="kpassword")
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
-        firstwm = Wantmatch.objects.create(name='pasakorn')
-        Human.objects.get(name='kitsanapong').wantmatch.add(firstwm)
-        ttall = Tutor.objects.all()
-        self.assertEqual(ttall.count(), 0)
-        stall = Student.objects.all()
-        self.assertEqual(stall.count(), 0)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_request = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_request)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_request)
+        first_request = WantMatch.objects.create(name='pasakorn')
+        Human.objects.get(name='kitsanapong').want_match.add(first_request)
+        tutor_all = Tutor.objects.all()
+        self.assertEqual(tutor_all.count(), 0)
+        student_all = Student.objects.all()
+        self.assertEqual(student_all.count(), 0)
         self.client.post(f'/acceptmatch/{pasakornh.name}')
-        ttall = Tutor.objects.all()
-        self.assertEqual(ttall.count(), 1)
-        self.assertEqual(ttall[0].name, 'kitsanapong')
-        stall = Student.objects.all()
-        self.assertEqual(stall.count(), 1)
-        self.assertEqual(stall[0].name, 'pasakorn')
+        tutor_all = Tutor.objects.all()
+        self.assertEqual(tutor_all.count(), 1)
+        self.assertEqual(tutor_all[0].name, 'kitsanapong')
+        student_all = Student.objects.all()
+        self.assertEqual(student_all.count(), 1)
+        self.assertEqual(student_all[0].name, 'pasakorn')
 
     def test_decline_request(self):
         User.objects.create_user(username='kitsanapong', password='kpassword')
@@ -249,21 +249,21 @@ class RequestTest(TestCase):
 
         # kitsanapong login
         self.client.login(username="kitsanapong", password="kpassword")
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
-        firstwm = Wantmatch.objects.create(name='pasakorn')
-        kitsanapongh.wantmatch.add(firstwm)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_r = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_r)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_r)
+        first_request = WantMatch.objects.create(name='pasakorn')
+        kitsanapongh.want_match.add(first_request)
 
-        allwmfork = Human.objects.get(name='kitsanapong').wantmatch.filter(name='pasakorn')
-        self.assertEqual(allwmfork.count(), 1)
-        Human.objects.get(name='kitsanapong').wantmatch.add(firstwm)
+        all_request_for_k_user = Human.objects.get(name='kitsanapong').want_match.filter(name='pasakorn')
+        self.assertEqual(all_request_for_k_user.count(), 1)
+        Human.objects.get(name='kitsanapong').want_match.add(first_request)
 
         self.client.post(f'/declinematch/{pasakornh.name}')
-        allwmfork = Human.objects.get(name='kitsanapong').wantmatch.filter(name='pasakorn')
-        self.assertEqual(allwmfork.count(), 0)
+        all_request_for_k_user = Human.objects.get(name='kitsanapong').want_match.filter(name='pasakorn')
+        self.assertEqual(all_request_for_k_user.count(), 0)
 
     def test_unmatched(self):
         User.objects.create_user(username='kitsanapong', password='kpassword')
@@ -273,11 +273,11 @@ class RequestTest(TestCase):
 
         # kitsanapong login
         self.client.login(username="kitsanapong", password="kpassword")
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_r = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_r)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_r)
         stfirst = Student.objects.create(name='pasakorn')
         kitsanapongh.student.add(stfirst)
         ttfirst = Tutor.objects.create(name='kitsanapong')
@@ -304,11 +304,11 @@ class ReviewtTest(TestCase):
 
         # kitsanapong login
         self.client.login(username="kitsanapong", password="kpassword")
-        chatname = Chatroomname.objects.create(name='kitsanapong' + 'pasakorn')
-        chatname.save()
-        chatnamer = Chatroomname.objects.get(name='kitsanapong' + 'pasakorn')
-        Human.objects.get(name='kitsanapong').chatroomname.add(chatnamer)
-        Human.objects.get(name='pasakorn').chatroomname.add(chatnamer)
+        chat_name = ChatRoomName.objects.create(name='kitsanapong' + 'pasakorn')
+        chat_name.save()
+        chat_name_r = ChatRoomName.objects.get(name='kitsanapong' + 'pasakorn')
+        Human.objects.get(name='kitsanapong').chat_room_name.add(chat_name_r)
+        Human.objects.get(name='pasakorn').chat_room_name.add(chat_name_r)
 
         totalreview = Review.objects.filter(post=pasakornh)
         self.assertEqual(totalreview.count(), 0)
@@ -330,13 +330,13 @@ class ChattingTest(TestCase):
         self.assertTemplateUsed(response, template_name='chat/room.html')
 
     def test_chatlog_db(self):
-        test_room = Chatlog.objects.create(chatroom='room1')
+        test_room = ChatLog.objects.create(chatroom='room1')
         test_chatlog = 'Example_Chatlog_1'
         test_room.chatlo = test_chatlog
         test_room.save()
 
-        all_user = Chatlog.objects.all()
-        roomtest1 = all_user[0]
+        all_user = ChatLog.objects.all()
+        room_test_a = all_user[0]
 
         self.assertEqual(all_user.count(), 1)
-        self.assertEqual(roomtest1.chatlo, 'Example_Chatlog_1')
+        self.assertEqual(room_test_a.chatlo, 'Example_Chatlog_1')
