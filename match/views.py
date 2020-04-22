@@ -184,7 +184,7 @@ def write_review_matched(request, profile_name):
             starrating = getrating[0]
         else:
             starrating = 0
-        Review.objects.create(post=user_a, realname=request.user.username, star=starrating,
+        Review.objects.create(post=user_a, real_name=request.user.username, star=starrating,
                               message=request.POST.get('item_review', ''))
 
         user_comment_all = Review.objects.filter(post=user_a)
@@ -440,7 +440,7 @@ def write_review(request, profilename):
                 star_rating = get_rating[0]
             else:
                 star_rating = 0
-            Review.objects.create(post=user_a, realname=request.user.username, star=star_rating,
+            Review.objects.create(post=user_a, real_name=request.user.username, star=star_rating,
                                   message=request.POST.get('item_review', ''))
 
             user_comment_all = Review.objects.filter(post=user_a)
@@ -468,7 +468,7 @@ def write_review(request, profilename):
                 star_rating = get_rating[0]
             else:
                 star_rating = 0
-            Review.objects.create(post=user_a, realname=request.user.username, star=star_rating,
+            Review.objects.create(post=user_a, real_name=request.user.username, star=star_rating,
                                   message=request.POST.get('item_review', ''))
 
             user_comment_all = Review.objects.filter(post=user_a)

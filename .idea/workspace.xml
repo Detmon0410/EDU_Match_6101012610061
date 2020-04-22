@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +114,7 @@
       <workItem from="1587186365983" duration="731000" />
       <workItem from="1587300559911" duration="1190000" />
       <workItem from="1587302289130" duration="6601000" />
+      <workItem from="1587530594607" duration="1646000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -320,7 +315,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User can sign Up and show total users registered" />
     <MESSAGE value="User can login into Website" />
     <MESSAGE value="User can log out" />
     <MESSAGE value="Add Chat app" />
@@ -345,7 +339,8 @@
     <MESSAGE value="Edit tests.py : rename func call from view" />
     <MESSAGE value="Edit views.py : rename &quot;Nosent&quot; var to &quot;nosent&quot;" />
     <MESSAGE value="Edit models.py : Add more comment details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit models.py : Add more comment details" />
+    <MESSAGE value="Edit views.py : 'rename realname var to real_name'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py : 'rename realname var to real_name'" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
