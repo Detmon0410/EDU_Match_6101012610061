@@ -12,10 +12,10 @@ def index(request):
 def room(request, room_name):
     # function will create coatrooms
 
-    if not ChatLog.objects.filter(chatroom=room_name).exists():
-        chat = ChatLog.objects.create(chatroom=room_name)
+    if not ChatLog.objects.filter(chat_room=room_name).exists():
+        chat = ChatLog.objects.create(chat_room=room_name)
         chat.save()
-    chat = ChatLog.objects.get(chatroom=room_name)
+    chat = ChatLog.objects.get(chat_room=room_name)
     var_split_log = str(chat.chat_log).split('\n')
     sum_result = ''
     for i in var_split_log:

@@ -420,16 +420,17 @@ def un_matching(request, name):
                                                           'user_profile': user_profile, 'meanstar': mean_star})
 
 
-def write_review(request, profilename):
+def write_review(request, profile_name):
     # this func will made you can writ review and rating to other user
-    user = User.objects.filter(username=profilename).first()
+    user = User.objects.filter(user_name=profile_name).first()
     user_profile = user.profile.image.url
-    selected_user = User.objects.get_by_natural_key(profilename)
+    selected_user = User.objects.get_by_natural_key(profile_name)
     user_name = selected_user.username
-    user_a = Human.objects.get(name=profilename)
+    user_a = Human.objects.get(name=profile_name)
     user_b = ''
+    # set up variable for
     for i in user_a.chat_room_name.all():
-        if (request.user.username in i.name) and (profilename in i.name):
+        if (request.user.username in i.name) and (profile_name in i.name):
             user_b = i.name
     mean_star = 0
     if user_a.want_match.filter(name=request.user.username):

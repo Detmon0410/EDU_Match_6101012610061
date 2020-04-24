@@ -27,8 +27,8 @@
             <div class="media-body">
             {% csrf_token %}
             <p>Username   : {{ username }} </p>
-            <p>First name : {{ firstname }} </p>
-            <p>Last  name : {{ lastname }} </p>
+            <p>First name : {{ first_name }} </p>
+            <p>Last  name : {{ last_name }} </p>
             <p>Email address     : {{ email }} </p>
             {{ count }}
             <button type="button" class="btn btn-outline-success btn-sm" onclick="location.href='{% url 'acceptM' username   %}'"> Accept </button> <button type="button" class="btn btn-outline-danger btn-sm" onclick="location.href='{% url 'declineM' username   %}'"> Decline </button> <button type="button" class="btn btn-outline-warning btn-sm" onclick="location.href='{% url 'room' id  %}'"> chat </button>

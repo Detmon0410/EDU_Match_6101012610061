@@ -79,15 +79,21 @@ class Profile(models.Model):  # user image profile db
 
 
 class Review(models.Model):  # review db
-    # receive variable when user
+    # receive variable when user write comment
     post = models.ForeignKey(Human, on_delete=models.CASCADE, related_name='comments', null=True)
+    # link variable from Human class
     created_on = models.DateTimeField(auto_now_add=True, null=True)
+    # time of review was send
     real_name = models.CharField(max_length=300)
+    # name of user
     message = models.CharField(max_length=300)
+    # review message
     star = models.IntegerField(null=True)
+    # rating of tutor
 
     class Meta:
         ordering = ['created_on']
+        #
 
 
 class ChatRoomName(models.Model):  # chatroom name in match list db

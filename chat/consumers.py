@@ -10,8 +10,8 @@ class ChatConsumer(WebsocketConsumer):
         # when user join chat room will sent contact to websocket
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
-        if not ChatLog.objects.filter(chatroom=self.room_name).exists():
-            chat = ChatLog.objects.create(chatroom=self.room_name)
+        if not ChatLog.objects.filter(chat_room=self.room_name).exists():
+            chat = ChatLog.objects.create(chat_room=self.room_name)
             chat.save()
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
