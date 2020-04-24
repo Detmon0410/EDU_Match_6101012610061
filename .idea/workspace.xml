@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/chat/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/templates/Friend_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/Friend_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/templates/other_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/other_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/templates/recieve_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/recieve_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +115,7 @@
       <workItem from="1587300559911" duration="1190000" />
       <workItem from="1587302289130" duration="6601000" />
       <workItem from="1587530594607" duration="1646000" />
-      <workItem from="1587712652068" duration="7859000" />
+      <workItem from="1587712652068" duration="17252000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -312,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587133086485</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Edit template : 'rename realname var to real_name'">
+      <created>1587735780383</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587735780383</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +323,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User can login into Website" />
     <MESSAGE value="User can log out" />
     <MESSAGE value="Add Chat app" />
     <MESSAGE value="Add textinput first and last name E-mail , Edit Profile in page Profile" />
@@ -347,7 +347,8 @@
     <MESSAGE value="Edit views.py : rename &quot;Nosent&quot; var to &quot;nosent&quot;" />
     <MESSAGE value="Edit models.py : Add more comment details" />
     <MESSAGE value="Edit views.py : 'rename realname var to real_name'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py : 'rename realname var to real_name'" />
+    <MESSAGE value="Edit template : 'rename realname var to real_name'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit template : 'rename realname var to real_name'" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -359,10 +360,10 @@
       <screen x="0" y="27" width="1325" height="741" />
     </state>
     <state x="490" y="289" width="354" height="222" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1325.741@0.27.1325.741" timestamp="1587718799330" />
-    <state x="269" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1587133086327">
+    <state x="269" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1587735779911">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="269" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587133086327" />
+    <state x="269" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587735779911" />
     <state x="589" y="72" width="777" height="657" key="CommitChangelistDialog2/0.27.1366.702@0.27.1366.702" timestamp="1585159062540" />
     <state x="625" y="61" width="777" height="807" key="CommitChangelistDialog2/0.27.1920.1000@0.27.1920.1000" timestamp="1580673952836" />
     <state x="466" y="135" width="468" height="518" key="FileChooserDialogImpl" timestamp="1585157716618">

@@ -97,26 +97,7 @@
               </div>
 
 <br>
-<div class="comments" style="padding: 10px;">
-            <h4 class="font-weight-bold"> Leave a review </h4><br>
-            <p class="font-weight-bold">Name : {{ user.username }}</p>
-    <p class="font-weight-bold">Rating :</p>
 
-            <p class="font-weight-bold"> Message*</p>
-<form action="{% url 'write_review' username %}" method="post">{% csrf_token %}
-    <textarea rows="4" cols="50" name="item_review" id="id_review" placeholder="Write Your Message Here" ></textarea>
-    <div class="rating">
-    <input type="radio" name="star" value="5" id="star1"><label for="star1">
-</label>
-    <input type="radio" name="star" value="4" id="star2"><label for="star2">
-</label>
-    <input type="radio" name="star" value="3" id="star3"><label for="star3">
-</label>
-    <input type="radio" name="star" value="2" id="star4"><label for="star4">
-</label>
-    <input type="radio" name="star" value="1" id="star5"><label for="star5">
-</label>
-</div>
 
     <br>
    {% if nomessage %} {{nomessage}}<br>{% endif %}

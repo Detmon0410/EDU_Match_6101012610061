@@ -428,14 +428,18 @@ def write_review(request, profile_name):
     user_name = selected_user.username
     user_a = Human.objects.get(name=profile_name)
     user_b = ''
-    # set up variable for
+    # set up variable for use in this functions
     for i in user_a.chat_room_name.all():
         if (request.user.username in i.name) and (profile_name in i.name):
             user_b = i.name
     mean_star = 0
+    # show current star rating
+
     if user_a.want_match.filter(name=request.user.username):
         checked = 1
+        # when user was match do this logic user can write review
         if request.POST.get('item_review', ''):
+            # when user click send star ratting and comment
             get_rating = request.POST.getlist('star', '')
             if get_rating:
                 star_rating = get_rating[0]
@@ -443,9 +447,11 @@ def write_review(request, profile_name):
                 star_rating = 0
             Review.objects.create(post=user_a, real_name=request.user.username, star=star_rating,
                                   message=request.POST.get('item_review', ''))
+            # receive star variable and message variable
 
             user_comment_all = Review.objects.filter(post=user_a)
             if user_comment_all.count() > 0:
+                # when have comment
                 for i in user_comment_all:
                     mean_star += i.star
                 mean_star = int(mean_star // user_comment_all.count())
@@ -453,7 +459,9 @@ def write_review(request, profile_name):
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
                                                           'usercomall': user_comment_all, 'checked': checked, 'id': user_b,
                                                           'meanstar': mean_star, 'user_profile': user_profile})
+            # show all comment from other user
         else:
+            # dont have comment
             no_message = 'Please type your message before Review'
             user_comment_all = Review.objects.filter(post=user_a)
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
@@ -463,7 +471,9 @@ def write_review(request, profile_name):
                                                           'user_profile': user_profile})
 
     else:
+        # for own user profile
         if request.POST.get('item_review', ''):
+            # when have comment
             get_rating = request.POST.getlist('star', '')
             if get_rating:
                 star_rating = get_rating[0]
@@ -481,7 +491,9 @@ def write_review(request, profile_name):
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
                                                           'usercomall': user_comment_all, 'id': user_b, 'meanstar': mean_star,
                                                           'user_profile': user_profile})
+            # show all comment and star rating
         else:
+            # when no comment
             no_message = 'Please type your message before Review'
             user_comment_all = Review.objects.filter(post=user_a)
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
