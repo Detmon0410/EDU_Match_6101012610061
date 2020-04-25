@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import time, unittest
 from django.test import LiveServerTestCase
 
-'''
+
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
@@ -37,8 +37,8 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Sign Up', header_text)
 
         # he type username as somsak
-        inputusername = self.browser.find_element_by_id('id_username')
-        inputusername.send_keys('somsak')
+        input_username = self.browser.find_element_by_id('id_username')
+        input_username.send_keys('somsak')
 
         # he type firestname and lastname as Pasakorn Phareyart
         input_firstname = self.browser.find_element_by_id('id_first_name')
@@ -124,15 +124,15 @@ class NewVisitorTest(LiveServerTestCase):
         old_password.send_keys('mok123456789')
 
         # he type new pass word
-        new_password1 = self.browser.find_element_by_id('id_new_password1')
-        new_password1.send_keys('mok987654321')
+        new_password_a = self.browser.find_element_by_id('id_new_password1')
+        new_password_a.send_keys('mok987654321')
 
         # he confirm new pass word
-        new_password2 = self.browser.find_element_by_id('id_new_password2')
-        new_password2.send_keys('mok987654321')
+        new_password_b = self.browser.find_element_by_id('id_new_password2')
+        new_password_b.send_keys('mok987654321')
 
         # he press Enter
-        new_password2.send_keys(Keys.ENTER)
+        new_password_b.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # he saw notification Password changed with success
@@ -196,14 +196,14 @@ class NewVisitorTest(LiveServerTestCase):
         input_email.send_keys('jake@gmail.com')
 
         # he type password
-        inputpassword = self.browser.find_element_by_id('id_password1')
-        inputpassword.send_keys('jk123456')
+        input_password = self.browser.find_element_by_id('id_password1')
+        input_password.send_keys('jk123456')
         # he confirm that password
-        inputpassword2 = self.browser.find_element_by_id('id_password2')
-        inputpassword2.send_keys('jk123456')
+        input_password_seconds = self.browser.find_element_by_id('id_password2')
+        input_password_seconds.send_keys('jk123456')
 
         # he press Enter
-        inputpassword2.send_keys(Keys.ENTER)
+        input_password_seconds.send_keys(Keys.ENTER)
         time.sleep(2)
 
         # he going to login page and check title o fpage
@@ -273,28 +273,28 @@ class NewVisitorTest(LiveServerTestCase):
         input_email.send_keys('detmon@gmail.com')
 
         # he set pass word as mok123456789
-        inputpassword = self.browser.find_element_by_id('id_password1')
-        inputpassword.send_keys('mok123456789')
+        input_password = self.browser.find_element_by_id('id_password1')
+        input_password.send_keys('mok123456789')
         # he confirm pass word
-        inputpassword2 = self.browser.find_element_by_id('id_password2')
-        inputpassword2.send_keys('mok123456789')
+        input_password_seconds = self.browser.find_element_by_id('id_password2')
+        input_password_seconds.send_keys('mok123456789')
 
         # he press Enter
-        inputpassword2.send_keys(Keys.ENTER)
+        input_password_seconds.send_keys(Keys.ENTER)
         time.sleep(5)
 
 
         # he going to login
         # he type user name
-        usernamelogin = self.browser.find_element_by_id('id_username')
-        usernamelogin.send_keys('detmonmok')
+        username_login = self.browser.find_element_by_id('id_username')
+        username_login.send_keys('detmonmok')
 
         # he type password Mokza007
-        passwordlogin = self.browser.find_element_by_id('id_password')
-        passwordlogin.send_keys('mok123456789')
+        password_login = self.browser.find_element_by_id('id_password')
+        password_login.send_keys('mok123456789')
 
         # he press Enter
-        passwordlogin.send_keys(Keys.ENTER)
+        password_login.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # From then, he added the names of subjects that he was not good at anymore
@@ -325,19 +325,19 @@ class NewVisitorTest(LiveServerTestCase):
         
 
 
-        inputbox = self.browser.find_element_by_id('id_review')
+        input_box = self.browser.find_element_by_id('id_review')
         self.assertEqual(
-            inputbox.get_attribute('placeholder'),
+            input_box.get_attribute('placeholder'),
             'Write Your Message Here'
         )
-        inputbox.send_keys("He is a nice person and good at teaching")
+        input_box.send_keys("He is a nice person and good at teaching")
         press_review=self.browser.find_element_by_id('review_button')
         press_review.send_keys(Keys.ENTER)
-        time.sleep(1)'''
+        time.sleep(1)
 
 
 
-
+'''
 class ChattingTest(unittest.TestCase):
     def setUp(self):
         self.browser_firefox = webdriver.Firefox()
@@ -449,4 +449,4 @@ class ChattingTest(unittest.TestCase):
 
 
 
-        time.sleep(3)
+        time.sleep(3)'''
