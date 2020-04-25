@@ -47,7 +47,7 @@
   <div class="row">
       <div class="comments" style="padding: 10px;">
           <div class="card-body">
-<h3 class="font-weight-bold">Review</h3>
+<h3 class="font-weight-bold" id="head_three">Review</h3>
               <div class="comments" style="padding: 5px;">
               <p class="font-weight-bold"> total review score </p>
                   {% if meanstar == 0 %}
@@ -115,7 +115,7 @@
 
     <br>
    {% if nomessage %} {{nomessage}}<br>{% endif %}
-    <button type="submit" class="btn btn-secondary btn-sm btn-block"> Review </button>
+    <button type="submit" class="btn btn-secondary btn-sm btn-block" id="review_button"> Review </button>
 </form>
 
 
@@ -139,7 +139,7 @@
   <div class="row">
       <div class="comments" style="padding: 10px;">
           <div class="card-body">
-          - <b>{{ review.real_name }}</b> :
+              - <b><label id="comment_check">{{ review.real_name }}</label></b> :
     {% if review.star == 0 %}
 <span class="fa fa-star normal"></span>
 <span class="fa fa-star normal"></span>

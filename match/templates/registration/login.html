@@ -20,12 +20,12 @@
             <form id="login-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                   <div class="mdl-textfield mdl-js-textfield">
-                    <label >&nbsp;Username  </label>
+                    <label id="user_id">&nbsp;Username  </label>
                     {{ form.username }}
 
                   </div>
                   <div class="mdl-textfield mdl-js-textfield">
-                  <label >&nbsp;Password  </label>
+                  <label id="password_id" >&nbsp;Password  </label>
                   {{ form.password }}
 
         					</div>
