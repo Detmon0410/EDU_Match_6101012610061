@@ -340,87 +340,87 @@ class NewVisitorTest(LiveServerTestCase):
 
 class ChattingTest(unittest.TestCase):
     def setUp(self):
-        self.browser1 = webdriver.Firefox()
-        self.browser2 = webdriver.Chrome()
+        self.browser_firefox = webdriver.Firefox()
+        self.browser_chrome = webdriver.Chrome()
 
     def tearDown(self):
-        self.browser1.quit()
-        self.browser2.quit()
+        self.browser_firefox.quit()
+        self.browser_chrome.quit()
 
     def test_user_can_chatting(self):
         # Mr.beta login to EDU-Match for chatting
-        self.browser1.get('http://127.0.0.1:8000/accounts/login/')
-        self.assertIn('Login', self.browser1.title)
-        inputusername_login_user1 = self.browser1.find_element_by_id('id_username')
-        inputusername_login_user1.send_keys('alpha04')
-        inputpassword_user1 = self.browser1.find_element_by_id('id_password')
-        inputpassword_user1.send_keys('ap123456')
-        inputpassword_user1.send_keys(Keys.ENTER)
+        self.browser_firefox.get('http://127.0.0.1:8000/accounts/login/')
+        self.assertIn('Login', self.browser_firefox.title)
+        input_username_login_user_a = self.browser_firefox.find_element_by_id('id_username')
+        input_username_login_user_a.send_keys('alpha04')
+        input_password_user_a = self.browser_firefox.find_element_by_id('id_password')
+        input_password_user_a.send_keys('ap123456')
+        input_password_user_a.send_keys(Keys.ENTER)
         time.sleep(2)
         # He going to chat room for chat with alpha tutor
 
-        self.browser1.get('http://127.0.0.1:8000/chat/tc8/')
+        self.browser_firefox.get('http://127.0.0.1:8000/chat/tc8/')
         #self.browser1.get('http://127.0.0.1:8000/chat/alpha04beta02/')
         time.sleep(2)
 
         # MR.beta login to EDU-Match for chatting
-        self.browser2.get('http://127.0.0.1:8000/accounts/login/')
-        self.assertIn('Login', self.browser2.title)
-        inputusername_login_user2 = self.browser2.find_element_by_id('id_username')
-        inputusername_login_user2.send_keys('beta02')
-        inputpassword_user2 = self.browser2.find_element_by_id('id_password')
-        inputpassword_user2.send_keys('bt123456')
+        self.browser_chrome.get('http://127.0.0.1:8000/accounts/login/')
+        self.assertIn('Login', self.browser_chrome.title)
+        input_username_login_user2 = self.browser_chrome.find_element_by_id('id_username')
+        input_username_login_user2.send_keys('beta02')
+        input_password_user2 = self.browser_chrome.find_element_by_id('id_password')
+        input_password_user2.send_keys('bt123456')
         time.sleep(3)
-        inputpassword_user2.send_keys(Keys.ENTER)
+        input_password_user2.send_keys(Keys.ENTER)
         time.sleep(3)
         # Mr.beta going to chat room for chat with alpha student
-        self.browser2.get('http://127.0.0.1:8000/chat/tc8/')
+        self.browser_chrome.get('http://127.0.0.1:8000/chat/tc8/')
         #self.browser2.get('http://127.0.0.1:8000/chat/alpha04beta02/')
         time.sleep(2)
 
         # Mr.beta and alpha See the chat log
-        chatbox = self.browser1.find_element_by_id('chat-log')
-        chatbox2 = self.browser2.find_element_by_id('chat-log')
+        chat_box_firefox = self.browser_firefox.find_element_by_id('chat-log')
+        chat_box_chrome = self.browser_chrome.find_element_by_id('chat-log')
 
         # # Mr.beta and alpha See the chat  textbox
-        chat_textbox = self.browser1.find_element_by_id('chat-message-input')
+        chat_textbox_firefox = self.browser_firefox.find_element_by_id('chat-message-input')
         self.assertIn(
-            chat_textbox.get_attribute('type'),
+            chat_textbox_firefox.get_attribute('type'),
             'text'
         )
-        chat_textbox2 = self.browser2.find_element_by_id('chat-message-input')
+        chat_textbox_chrome = self.browser_chrome.find_element_by_id('chat-message-input')
         self.assertIn(
-            chat_textbox2.get_attribute('type'),
+            chat_textbox_chrome.get_attribute('type'),
             'text'
         )
 
 
 
         # alpha types message "hello"
-        chat_textbox2.send_keys('hello')
+        chat_textbox_chrome.send_keys('hello')
         time.sleep(2)
 
         # alpha clicks the send button.
-        chat_textbox2.send_keys(Keys.ENTER)
+        chat_textbox_chrome.send_keys(Keys.ENTER)
         time.sleep(2)
 
         # alpha notices his message is send in textarea
         self.assertIn(
-            chatbox2.get_attribute('value'),
+            chat_box_chrome.get_attribute('value'),
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\tbeta02 :hello\n'
         )
 
         # alpha types message "Hi"
-        chat_textbox2.send_keys('How are you? ')
+        chat_textbox_chrome.send_keys('How are you? ')
         time.sleep(2)
 
         # alpha clicks the send button.
-        chat_textbox2.send_keys(Keys.ENTER)
+        chat_textbox_chrome.send_keys(Keys.ENTER)
         time.sleep(2)
 
         # alpha notices his message is send in textarea
         self.assertIn(
-            chatbox2.get_attribute('value'),
+            chat_box_chrome.get_attribute('value'),
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\tbeta02 :hello\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tbeta02 :How are you? \n'
 
         )
@@ -429,21 +429,21 @@ class ChattingTest(unittest.TestCase):
 
         # Mr.beta notices manop message  in textarea
         self.assertIn(
-            chatbox.get_attribute('value'),
+            chat_box_firefox.get_attribute('value'),
             'beta02 :hello\nbeta02 :How are you? \n'
         )
 
         # somsak types message "i'm fine"
-        chat_textbox.send_keys('im fine')
+        chat_textbox_firefox.send_keys('im fine')
         time.sleep(2)
 
         # alpha clicks the send button.
-        chat_textbox.send_keys(Keys.ENTER)
+        chat_textbox_firefox.send_keys(Keys.ENTER)
         time.sleep(2)
 
         # somsak notices his message is send in textarea
         self.assertIn(
-            chatbox.get_attribute('value'),
+            chat_box_firefox.get_attribute('value'),
             'beta02 :hello\nbeta02 :How are you? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\talpha04 :im fine\n'
         )
 
