@@ -11,7 +11,7 @@ class NewVisitorTest(LiveServerTestCase):
 
     def tearDown(self):
         self.browser.quit()
-
+'''
     def test_user_can_join_home_page(self):
         # Mok has trouble learning. So he went to see the home page
         # of the website that his friend introduced
@@ -22,7 +22,7 @@ class NewVisitorTest(LiveServerTestCase):
         # saw login box on this page
         header_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('Login', header_text)
-        time.sleep(1)
+        time.sleep(5)
 
 
 
@@ -56,10 +56,10 @@ class NewVisitorTest(LiveServerTestCase):
         # he confirm password
         input_password_seconds = self.browser.find_element_by_id('id_password2')
         input_password_seconds.send_keys('mok123456789')
-
+        time.sleep(3)
         # He press Enter
         input_password_seconds.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         # Next he saw login page
         self.assertIn('Login', self.browser.title)
@@ -71,7 +71,7 @@ class NewVisitorTest(LiveServerTestCase):
         # he type pass word
         input_password = self.browser.find_element_by_id('id_password')
         input_password.send_keys('mok123456789')
-
+        time.sleep(3)
         # He press Enter
         input_password.send_keys(Keys.ENTER)
         time.sleep(3)
@@ -83,10 +83,10 @@ class NewVisitorTest(LiveServerTestCase):
         # he click his profile button
         text_profile = self.browser.find_element_by_id('id_profile')
         text_profile.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         self.assertIn('Profile', self.browser.title)
-
+        time.sleep(3)
         # he saw wrong name in textinput
         input_first_name_profile = self.browser.find_element_by_id('id_first_name')
         self.assertIn('Paskorn', input_first_name_profile.get_attribute("value"))
@@ -94,15 +94,15 @@ class NewVisitorTest(LiveServerTestCase):
         # now he type true name as Pasakorn
         input_first_name_profile.clear()
         input_first_name_profile.send_keys('Pasakorn')
-
+        time.sleep(3)
         # he press Enter
         input_first_name_profile.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         # now his name is Pasakorn
         name_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('Pasakorn', name_text)
-
+        time.sleep(3)
         # he want to change pass word
         self.sup_test_can_user_change_password()
 
@@ -113,7 +113,7 @@ class NewVisitorTest(LiveServerTestCase):
         # and then he want to change pass word
         # he going to change pass word page
         self.browser.get(self.live_server_url + '/accounts/change_password/')
-        time.sleep(1)
+        time.sleep(3)
 
         # he saw head text as Change Password
         header_text = self.browser.find_element_by_tag_name('h2').text
@@ -130,10 +130,10 @@ class NewVisitorTest(LiveServerTestCase):
         # he confirm new pass word
         new_password_b = self.browser.find_element_by_id('id_new_password2')
         new_password_b.send_keys('mok987654321')
-
+        time.sleep(3)
         # he press Enter
         new_password_b.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         # he saw notification Password changed with success
         success_text = self.browser.find_element_by_tag_name('p').text
@@ -143,7 +143,7 @@ class NewVisitorTest(LiveServerTestCase):
         # he login agian
         link_logout = self.browser.find_element_by_id('id_logout')
         link_logout.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         # he saw login title
         self.assertIn('Login', self.browser.title)
@@ -155,17 +155,16 @@ class NewVisitorTest(LiveServerTestCase):
         # he type pass word as mok987654321
         input_password = self.browser.find_element_by_id('id_password')
         input_password.send_keys('mok987654321')
-
+        time.sleep(3)
         # จากนั้นเขาจึงกดปุ่ม Enter
         input_password.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
         # he saw homepage title
         header_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('Welcome to EDU-Match', header_text)
 
-
-
+        time.sleep(3)
 
 
 
@@ -175,7 +174,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get(self.live_server_url + '/signup')
 
         # jack join Match-EDU signup page
-
+        time.sleep(3)
         self.assertIn('Sign Up', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h2').text
         # he check title of page was Sign Up
@@ -201,10 +200,10 @@ class NewVisitorTest(LiveServerTestCase):
         # he confirm that password
         input_password_seconds = self.browser.find_element_by_id('id_password2')
         input_password_seconds.send_keys('jk123456')
-
+        time.sleep(3)
         # he press Enter
         input_password_seconds.send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(3)
 
         # he going to login page and check title o fpage
         self.assertIn('Login', self.browser.title)
@@ -221,7 +220,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # จากนั้นเขาจึงกดปุ่ม Enter
         password_login.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(5)
 
         # he join to home page
         self.browser.get(self.live_server_url)
@@ -240,15 +239,16 @@ class NewVisitorTest(LiveServerTestCase):
         )
         # He typed "English 1"
         input_box.send_keys('English 1')
+        time.sleep(3)
         # he click add subject
         input_box.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(5)
 
         # he saw his English 1 subject
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn('english1', [row.text for row in rows])
-        time.sleep(1)
+        time.sleep(5)
 
         # Next Detmon join sign up page
         self.browser.get(self.live_server_url + '/signup')
@@ -312,7 +312,7 @@ class NewVisitorTest(LiveServerTestCase):
         input_box.send_keys('English 1')
         input_box.send_keys(Keys.ENTER)
         # web will display user was expert with this subject
-        time.sleep(1)
+        time.sleep(5)
         self.sup_test_to_review()
 
 
@@ -321,7 +321,7 @@ class NewVisitorTest(LiveServerTestCase):
 
     def sup_test_to_review(self):
         self.browser.get(self.live_server_url + '/friendprofile/jackel1234')
-        time.sleep(1)
+        time.sleep(5)
         
 
 
@@ -331,13 +331,14 @@ class NewVisitorTest(LiveServerTestCase):
             'Write Your Message Here'
         )
         input_box.send_keys("He is a nice person and good at teaching")
+        time.sleep(3)
         press_review=self.browser.find_element_by_id('review_button')
         press_review.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(5)'''
 
 
 
-'''
+
 class ChattingTest(unittest.TestCase):
     def setUp(self):
         self.browser_firefox = webdriver.Firefox()
@@ -359,7 +360,7 @@ class ChattingTest(unittest.TestCase):
         time.sleep(2)
         # He going to chat room for chat with alpha tutor
 
-        self.browser_firefox.get('http://127.0.0.1:8000/chat/tc8/')
+        self.browser_firefox.get('http://127.0.0.1:8000/chat/testroom09/')
         #self.browser1.get('http://127.0.0.1:8000/chat/alpha04beta02/')
         time.sleep(2)
 
@@ -374,7 +375,7 @@ class ChattingTest(unittest.TestCase):
         input_password_user2.send_keys(Keys.ENTER)
         time.sleep(3)
         # Mr.beta going to chat room for chat with alpha student
-        self.browser_chrome.get('http://127.0.0.1:8000/chat/tc8/')
+        self.browser_chrome.get('http://127.0.0.1:8000/chat/testroom09/')
         #self.browser2.get('http://127.0.0.1:8000/chat/alpha04beta02/')
         time.sleep(2)
 
@@ -418,7 +419,7 @@ class ChattingTest(unittest.TestCase):
         chat_textbox_chrome.send_keys(Keys.ENTER)
         time.sleep(2)
 
-        # alpha notices his message is send in textarea
+        # beta notices his message is send in textarea
         self.assertIn(
             chat_box_chrome.get_attribute('value'),
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\tbeta02 :hello\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tbeta02 :How are you? \n'
@@ -427,13 +428,13 @@ class ChattingTest(unittest.TestCase):
 
 
 
-        # Mr.beta notices manop message  in textarea
+        # Mr.beta notices Alpha message  in textarea
         self.assertIn(
             chat_box_firefox.get_attribute('value'),
             'beta02 :hello\nbeta02 :How are you? \n'
         )
 
-        # somsak types message "i'm fine"
+        # alpha types message "i'm fine"
         chat_textbox_firefox.send_keys('im fine')
         time.sleep(2)
 
@@ -441,7 +442,7 @@ class ChattingTest(unittest.TestCase):
         chat_textbox_firefox.send_keys(Keys.ENTER)
         time.sleep(2)
 
-        # somsak notices his message is send in textarea
+        # alpha notices his message is send in textarea
         self.assertIn(
             chat_box_firefox.get_attribute('value'),
             'beta02 :hello\nbeta02 :How are you? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\talpha04 :im fine\n'
@@ -449,4 +450,4 @@ class ChattingTest(unittest.TestCase):
 
 
 
-        time.sleep(3)'''
+        time.sleep(3)
