@@ -693,58 +693,46 @@ def help_app(request):
     return render(request, 'help.html')
 
 def remove_review(request,object_id,profile_name):
+    # remoe review function
+
     user = User.objects.filter(username=profile_name).first()
     user_profile = user.profile.image.url
     selected_user = User.objects.get_by_natural_key(profile_name)
     user_name = selected_user.username
     user_a = Human.objects.get(name=profile_name)
     user_b = ''
+    checked = 1
     # set up variable for use in this functions
     for i in user_a.chat_room_name.all():
-        # use for create chatroom name
+        # use for create chatroom name for join chatroom
         if (request.user.username in i.name) and (profile_name in i.name):
             user_b = i.name
+
     mean_star = 0
-    # show current star rating
-
-    if user_a.want_match.filter(name=request.user.username):
-        checked = 1
-        # when check for match user
-
-        user_delete = Review.objects.get(id=object_id).delete()
-        user_comment_all = Review.objects.filter(post=user_a)
-        # delete comment review
-        if user_comment_all.count() > 0:
-            # when have star rating
-            for i in user_comment_all:
-                mean_star += i.star
-            mean_star = int(mean_star // user_comment_all.count())
-            # calculate star rating
-        return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
-            , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                      'usercomall': user_comment_all, 'checked': checked,
-                                                      'id': user_b,
-                                                      'meanstar': mean_star, 'user_profile': user_profile})
-        # show all comment from other user
+    # set variable to calculate new star review
 
 
-    else:
-        # for unmatch user
+    review_delete = Review.objects.get(id=object_id)
+    review_delete.delete()
+    # delete comment review
 
-        user_delete = Review.objects.get(id=object_id).delete()
-        user_comment_all = Review.objects.filter(post=user_a)
-        # delete review
+    user_comment_all = Review.objects.filter(post=user_a)
+    # get comment from other user
 
-        if user_comment_all.count() > 0:
-            # when have star review
-            for i in user_comment_all:
-                mean_star += i.star
-            mean_star = int(mean_star // user_comment_all.count())
-            # calculate star
-        return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
-            , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                      'usercomall': user_comment_all, 'id': user_b,
-                                                      'meanstar': mean_star,
-                                                      'user_profile': user_profile})
-        # show all comment and star rating
+    if user_comment_all.count() > 0:
+        # calculate new star rating after delete review
+        for i in user_comment_all:
+            mean_star += i.star
+        mean_star = int(mean_star // user_comment_all.count())
+        # calculate star rating
+
+    return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
+        , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
+                                                  'usercomall': user_comment_all, 'checked': checked,
+                                                  'id': user_b,
+                                                  'meanstar': mean_star, 'user_profile': user_profile})
+        # return variable to template  for display on html page
+
+
+
 
