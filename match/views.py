@@ -3,14 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 # Add
 from django.contrib import messages
-
 from match.models import Human, Subject, Matched, WantMatch, Profile, Tutor, Student, Review, ChatRoomName
-
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-
 from match.forms import SignUpForm, ProfileForm, ProfileUpdateForm
-
+from django.urls import reverse
 
 # rename all functions
 # rename all value
@@ -156,7 +153,8 @@ def friend_profile(request, name):
     user_profile = user.profile.image.url
 
     return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
-        , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name, 'usercomall': user_comment_all,
+        , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
+                                                   'usercomall': user_comment_all,
                                                    'user_profile': user_profile, 'id': user_b, 'meanstar': mean_star})
 
 
@@ -190,14 +188,17 @@ def write_review_matched(request, profile_name):
         user_comment_all = Review.objects.filter(post=user_a)
         return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
             , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                       'usercomall': user_comment_all, 'id': user_b, 'meanstar': mean_star,
+                                                       'usercomall': user_comment_all, 'id': user_b,
+                                                       'meanstar': mean_star,
                                                        'user_profile': user_profile})
     else:
         no_message = 'Please type your message before Review'
         user_comment_all = Review.objects.filter(post=user_a)
         return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
-            , 'lastname': selected_user.last_name, 'email': selected_user.email, 'nomessage': no_message, 'name': user_name,
-                                                       'usercomall': user_comment_all, 'id': user_b, 'meanstar': mean_star,
+            , 'lastname': selected_user.last_name, 'email': selected_user.email, 'nomessage': no_message,
+                                                       'name': user_name,
+                                                       'usercomall': user_comment_all, 'id': user_b,
+                                                       'meanstar': mean_star,
                                                        'user_profile': user_profile})
 
 
@@ -284,7 +285,8 @@ def view_other_profile(request, name):
         if user_comment_all.count() > 0:
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                          'usercomall': user_comment_all, 'checked': checked, 'id': user_b,
+                                                          'usercomall': user_comment_all, 'checked': checked,
+                                                          'id': user_b,
                                                           'user_profile': user_profile, 'meanstar': mean_star})
         else:
             no_comment = "โนคอมเม้นเน้นคอมโบ"
@@ -338,7 +340,8 @@ def matching(request, name):
         if user_comment_all.count() > 0:
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                          'usercomall': user_comment_all, 'checked': checked, 'id': user_b,
+                                                          'usercomall': user_comment_all, 'checked': checked,
+                                                          'id': user_b,
                                                           'user_profile': user_profile, 'meanstar': mean_star})
         else:
             no_comment = "โนคอมเม้นเน้นคอมโบ"
@@ -397,7 +400,8 @@ def un_matching(request, name):
         if user_comment_all.count() > 0:
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                          'usercomall': user_comment_all, 'checked': checked, 'id': user_b,
+                                                          'usercomall': user_comment_all, 'checked': checked,
+                                                          'id': user_b,
                                                           'user_profile': user_profile, 'meanstar': mean_star})
         else:
             Nocomment = "โนคอมเม้นเน้นคอมโบ"
@@ -457,7 +461,8 @@ def write_review(request, profile_name):
                 mean_star = int(mean_star // user_comment_all.count())
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                          'usercomall': user_comment_all, 'checked': checked, 'id': user_b,
+                                                          'usercomall': user_comment_all, 'checked': checked,
+                                                          'id': user_b,
                                                           'meanstar': mean_star, 'user_profile': user_profile})
             # show all comment from other user
         else:
@@ -489,7 +494,8 @@ def write_review(request, profile_name):
                 mean_star = int(mean_star // user_comment_all.count())
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                          'usercomall': user_comment_all, 'id': user_b, 'meanstar': mean_star,
+                                                          'usercomall': user_comment_all, 'id': user_b,
+                                                          'meanstar': mean_star,
                                                           'user_profile': user_profile})
             # show all comment and star rating
         else:
@@ -498,7 +504,8 @@ def write_review(request, profile_name):
             user_comment_all = Review.objects.filter(post=user_a)
             return render(request, 'other_profile.html', {'username': user_name, 'firstname': selected_user.first_name
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'nomessage': no_message,
-                                                          'name': user_name, 'usercomall': user_comment_all, 'id': user_b,
+                                                          'name': user_name, 'usercomall': user_comment_all,
+                                                          'id': user_b,
                                                           'meanstar': mean_star, 'user_profile': user_profile})
 
 
@@ -692,47 +699,9 @@ def help_app(request):
     # this func will lead you to help page
     return render(request, 'help.html')
 
-def remove_review(request,object_id,profile_name):
-    # remoe review function
 
-    user = User.objects.filter(username=profile_name).first()
-    user_profile = user.profile.image.url
-    selected_user = User.objects.get_by_natural_key(profile_name)
-    user_name = selected_user.username
-    user_a = Human.objects.get(name=profile_name)
-    user_b = ''
-    checked = 1
-    # set up variable for use in this functions
-    for i in user_a.chat_room_name.all():
-        # use for create chatroom name for join chatroom
-        if (request.user.username in i.name) and (profile_name in i.name):
-            user_b = i.name
-
-    mean_star = 0
-    # set variable to calculate new star review
-
-
+def remove_review(request, object_id, profile_name):
     review_delete = Review.objects.get(id=object_id)
     review_delete.delete()
     # delete comment review
-
-    user_comment_all = Review.objects.filter(post=user_a)
-    # get comment from other user
-
-    if user_comment_all.count() > 0:
-        # calculate new star rating after delete review
-        for i in user_comment_all:
-            mean_star += i.star
-        mean_star = int(mean_star // user_comment_all.count())
-        # calculate star rating
-
-    return render(request, 'Friend_profile.html', {'username': user_name, 'firstname': selected_user.first_name
-        , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
-                                                  'usercomall': user_comment_all, 'checked': checked,
-                                                  'id': user_b,
-                                                  'meanstar': mean_star, 'user_profile': user_profile})
-        # return variable to template  for display on html page
-
-
-
-
+    return redirect(reverse('friendprofile', args=(profile_name,)))

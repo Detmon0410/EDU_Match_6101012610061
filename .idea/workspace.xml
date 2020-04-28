@@ -32,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/tmp/mozilla_detmon0/views.py" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -118,7 +118,8 @@
       <workItem from="1587712652068" duration="19316000" />
       <workItem from="1587783132205" duration="29504000" />
       <workItem from="1587869071883" duration="5725000" />
-      <workItem from="1587968903804" duration="2167000" />
+      <workItem from="1587968903804" duration="2818000" />
+      <workItem from="1588076882361" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -351,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587897776269</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Edit views.py :delete unused code from remove review functions">
+      <created>1587982898032</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1587982898032</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +369,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create Admin function" />
     <MESSAGE value="User can reset password when user forgot password" />
     <MESSAGE value="Functional test user can change password" />
     <MESSAGE value="Unitest Test SignUpTest ChangeFirstNameTest ChangePasswordTest" />
@@ -386,7 +393,8 @@
     <MESSAGE value="Edit Ft test.py :refactor variable in ChattingTest" />
     <MESSAGE value="Edit Ft test.py :refactor in NewVisitorTest" />
     <MESSAGE value="Edit views.py :add remove review functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py :add remove review functions" />
+    <MESSAGE value="Edit views.py :delete unused code from remove review functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py :delete unused code from remove review functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -398,16 +406,16 @@
       <screen x="0" y="27" width="1325" height="741" />
     </state>
     <state x="490" y="289" width="354" height="222" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1325.741@0.27.1325.741" timestamp="1587718799330" />
-    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1587897776037">
+    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1587982897818">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587897776037" />
+    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587982897818" />
     <state x="589" y="72" width="777" height="657" key="CommitChangelistDialog2/0.27.1366.702@0.27.1366.702" timestamp="1585159062540" />
     <state x="625" y="61" width="777" height="807" key="CommitChangelistDialog2/0.27.1920.1000@0.27.1920.1000" timestamp="1580673952836" />
-    <state x="466" y="135" width="468" height="518" key="FileChooserDialogImpl" timestamp="1585157716618">
-      <screen x="0" y="27" width="1366" height="702" />
+    <state x="452" y="141" width="468" height="518" key="FileChooserDialogImpl" timestamp="1588077297774">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="452" y="141" width="468" height="518" key="FileChooserDialogImpl/0.27.1325.741@0.27.1325.741" timestamp="1582528729795" />
+    <state x="452" y="141" width="468" height="518" key="FileChooserDialogImpl/0.27.1325.741@0.27.1325.741" timestamp="1588077297774" />
     <state x="466" y="135" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.702@0.27.1366.702" timestamp="1585157716618" />
     <state width="1343" height="163" key="GridCell.Tab.0.bottom" timestamp="1580796205503">
       <screen x="0" y="27" width="1366" height="702" />
