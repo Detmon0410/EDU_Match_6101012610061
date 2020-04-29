@@ -164,7 +164,8 @@
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>{% endif %}
 
-    <br> messege : {{ review.message }}
+    {% if review.real_name == user.username %}<button type="button" name="remove_review" class="btn btn-outline-danger btn-sm" onclick="location.href='{% url 'remove_review' review.id username   %}'"> Delete </button>{% endif %}
+    <br> messege : {{ review.message }}<br>
 </div>
     </div>
   </div>

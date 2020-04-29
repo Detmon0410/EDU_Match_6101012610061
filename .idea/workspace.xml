@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/match/templates/other_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/other_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/match/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +122,7 @@
       <workItem from="1587869071883" duration="5725000" />
       <workItem from="1587968903804" duration="2818000" />
       <workItem from="1588076882361" duration="693000" />
+      <workItem from="1588147547981" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
