@@ -4,7 +4,7 @@ from django.urls import reverse, resolve
 from match.views import *
 from match.models import Human, Subject, WantMatch, Review, Matched, ChatRoomName, Tutor, Student, ChatLog
 
-
+'''
 class HomePageTest(TestCase):
 
     def test_uses_home_template(self):
@@ -340,3 +340,33 @@ class ChattingTest(TestCase):
 
         self.assertEqual(all_user.count(), 1)
         self.assertEqual(room_test_a.chatlo, 'Example_Chatlog_1')
+'''
+
+
+class DeleteReviewTest(TestCase):
+    def test_remove_review(self):
+        # create two user
+        User.objects.create_user(username='kitsanapong', password='kpassword')
+        User.objects.create_user(username='pasakorn', password='mpassword')
+        pasakornh = Human.objects.create(name='pasakorn')
+        Human.objects.create(name='kitsanapong')
+
+        # kitsanapong login
+        self.client.login(username="kitsanapong", password="kpassword")
+
+        # he write review on pasakorn profile
+        Review.objects.filter(post=pasakornh)
+        self.client.post(f'/write_review_matched/{pasakornh.name}',
+                         {'item_review': 'Your teaching is so bad.', 'star': [0, 0, 0, 0, ]}, follow=True)
+
+        #  he saw his comment but he change his mind he want to delete comment
+        total_review = Review.objects.filter(post=pasakornh).all()
+        self.assertEqual(total_review.count(), 1)
+        self.assertEqual(total_review[0].message, 'Your teaching is so bad.')
+
+        # he  click on delete review button
+        self.client.post(f'/remove_review/{total_review[0].id}/{pasakornh.name}', follow=True)
+
+        # now his review is gone
+        total_review = Review.objects.filter(post=pasakornh).all()
+        self.assertEqual(total_review.count(), 0)

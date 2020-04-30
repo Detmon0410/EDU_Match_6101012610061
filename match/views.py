@@ -183,7 +183,7 @@ def write_review(request, profile_name):
                 mean_star += i.star
                 # calculate new stars rating
         return redirect(reverse('friendprofile', args=(profile_name,)))
-        # set all variable to friend profiles functions
+        # set all variable to render on friend profiles functions
 
 def view_r_profile(request, name):
     # this func will show match request from other user
@@ -605,3 +605,4 @@ def remove_review(request, object_id, profile_name):
     review_delete.delete()
     # delete comment review
     return redirect(reverse('friendprofile', args=(profile_name,)))
+    # set all variable to friend profiles functions

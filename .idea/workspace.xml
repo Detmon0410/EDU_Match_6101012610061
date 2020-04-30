@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/templates/other_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/other_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/match/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +121,7 @@
       <workItem from="1587869071883" duration="5725000" />
       <workItem from="1587968903804" duration="2818000" />
       <workItem from="1588076882361" duration="693000" />
-      <workItem from="1588147547981" duration="824000" />
+      <workItem from="1588147547981" duration="6913000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -362,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587982898032</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Edit views.py :use return with redirect(reverse...) in write_review functions">
+      <created>1588148695735</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1588148695738</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +378,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User can reset password when user forgot password" />
     <MESSAGE value="Functional test user can change password" />
     <MESSAGE value="Unitest Test SignUpTest ChangeFirstNameTest ChangePasswordTest" />
     <MESSAGE value="Edit position star vote" />
@@ -397,7 +402,8 @@
     <MESSAGE value="Edit Ft test.py :refactor in NewVisitorTest" />
     <MESSAGE value="Edit views.py :add remove review functions" />
     <MESSAGE value="Edit views.py :delete unused code from remove review functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py :delete unused code from remove review functions" />
+    <MESSAGE value="Edit views.py :use return with redirect(reverse...) in write_review functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit views.py :use return with redirect(reverse...) in write_review functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -409,10 +415,10 @@
       <screen x="0" y="27" width="1325" height="741" />
     </state>
     <state x="490" y="289" width="354" height="222" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.27.1325.741@0.27.1325.741" timestamp="1587718799330" />
-    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1587982897818">
+    <state x="137" y="27" width="1032" height="741" key="CommitChangelistDialog2" timestamp="1588148695562">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
-    <state x="0" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1587982897818" />
+    <state x="137" y="27" width="1032" height="741" key="CommitChangelistDialog2/0.27.1325.741@0.27.1325.741" timestamp="1588148695562" />
     <state x="589" y="72" width="777" height="657" key="CommitChangelistDialog2/0.27.1366.702@0.27.1366.702" timestamp="1585159062540" />
     <state x="625" y="61" width="777" height="807" key="CommitChangelistDialog2/0.27.1920.1000@0.27.1920.1000" timestamp="1580673952836" />
     <state x="452" y="141" width="468" height="518" key="FileChooserDialogImpl" timestamp="1588077297774">
