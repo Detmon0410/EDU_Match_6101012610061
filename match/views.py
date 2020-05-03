@@ -602,6 +602,7 @@ def help_app(request):
 
 def remove_review(request, profile_name):
     if request.user.is_authenticated:
+        # check when user has login
         object_id = int(request.POST['review_id'])
         review_delete = Review.objects.get(id=object_id)
         review_delete.delete()
@@ -610,3 +611,4 @@ def remove_review(request, profile_name):
         # set all variable to friend profiles functions
     else:
         return redirect('login')
+        # if user not login retern to login page

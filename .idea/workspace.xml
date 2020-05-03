@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +120,7 @@
       <workItem from="1588147547981" duration="10218000" />
       <workItem from="1588420469621" duration="3101000" />
       <workItem from="1588509670842" duration="2345000" />
-      <workItem from="1588523440385" duration="419000" />
+      <workItem from="1588523440385" duration="734000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -391,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588514560127</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="add check whether user login logic in def remove_review">
+      <created>1588524175685</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1588524175685</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +405,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add picture in about app and about group page" />
     <MESSAGE value="Edit Sign-up , Friend match and Friend request" />
     <MESSAGE value="Add background in see tutor profile , recieve profile , friend profile" />
     <MESSAGE value="Add help page" />
@@ -426,7 +429,8 @@
     <MESSAGE value="Edit match/test.py: add UT remove review" />
     <MESSAGE value="Edit match/test.py: add more check logic in remove review UT" />
     <MESSAGE value="chang remove review method to post" />
-    <option name="LAST_COMMIT_MESSAGE" value="chang remove review method to post" />
+    <MESSAGE value="add check whether user login logic in def remove_review" />
+    <option name="LAST_COMMIT_MESSAGE" value="add check whether user login logic in def remove_review" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
