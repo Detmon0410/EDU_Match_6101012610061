@@ -32,7 +32,7 @@ urlpatterns = [
     path('about_app', views.about_app, name='about_app'),
     path('about_group', views.about_group, name='about_group'),
     path('help', views.help_app, name='help'),
-    path('remove_review/<str:object_id>/<str:profile_name>', views.remove_review, name='remove_review'),
+    path('remove_review/<str:profile_name>', views.remove_review, name='remove_review'),
     path('accounts/change_password/',
         auth_views.PasswordChangeView.as_view(
             template_name='registration/change_password.html',

@@ -600,7 +600,8 @@ def help_app(request):
     return render(request, 'help.html')
 
 
-def remove_review(request, object_id, profile_name):
+def remove_review(request, profile_name):
+    object_id = int(request.POST['review_id'])
     review_delete = Review.objects.get(id=object_id)
     review_delete.delete()
     # delete comment review

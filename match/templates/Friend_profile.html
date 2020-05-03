@@ -177,9 +177,15 @@
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>{% endif %}
+    <br> {{ review.message }}   </br>
+    {% if review.real_name == user.username %}
+              <form action="{% url 'remove_review'  username   %}" method="POST">
+                                {% csrf_token %}
+                                    <input type="hidden" id="review_id" name="review_id" value="{{ review.id }}">
+                                    <input name="remove_review" class="btn btn-outline-danger btn-sm" type="submit" value="Delete" />
+                                </form>
+              {% endif %}
 
-    {% if review.real_name == user.username %}<button type="button"  name="remove_review" class="btn btn-outline-danger btn-sm" onclick="location.href='{% url 'remove_review' review.id username   %}'"> Delete </button>{% endif %}
-    <br> {{ review.message }}   <br>
 </div>
     </div>
   </div>
