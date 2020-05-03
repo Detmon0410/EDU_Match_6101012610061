@@ -601,9 +601,12 @@ def help_app(request):
 
 
 def remove_review(request, profile_name):
-    object_id = int(request.POST['review_id'])
-    review_delete = Review.objects.get(id=object_id)
-    review_delete.delete()
-    # delete comment review
-    return redirect(reverse('friendprofile', args=(profile_name,)))
-    # set all variable to friend profiles functions
+    if request.user.is_authenticated:
+        object_id = int(request.POST['review_id'])
+        review_delete = Review.objects.get(id=object_id)
+        review_delete.delete()
+        # delete comment review
+        return redirect(reverse('friendprofile', args=(profile_name,)))
+        # set all variable to friend profiles functions
+    else:
+        return redirect('login')
