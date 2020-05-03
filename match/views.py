@@ -9,6 +9,7 @@ from django.views.generic import CreateView, UpdateView
 from match.forms import SignUpForm, ProfileForm, ProfileUpdateForm
 from django.urls import reverse
 
+
 # rename all functions
 # rename all value
 
@@ -184,6 +185,7 @@ def write_review(request, profile_name):
                 # calculate new stars rating
         return redirect(reverse('friendprofile', args=(profile_name,)))
         # set all variable to render on friend profiles functions
+
 
 def view_r_profile(request, name):
     # this func will show match request from other user
@@ -405,8 +407,6 @@ def un_matching(request, name):
                 , 'lastname': selected_user.last_name, 'email': selected_user.email, 'name': user_name,
                                                           'Nocomment': Nocomment, 'id': user_b,
                                                           'user_profile': user_profile, 'meanstar': mean_star})
-
-
 
 
 ##### end other_profile.html

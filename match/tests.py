@@ -357,16 +357,26 @@ class DeleteReviewTest(TestCase):
         # he write review on pasakorn profile
         Review.objects.filter(post=pasakornh)
         self.client.post(f'/write_review_matched/{pasakornh.name}',
-                         {'item_review': 'Your teaching is so bad.', 'star': [0, 0, 0, 0, ]}, follow=True)
+                         {'item_review': 'COMMENT NO.1', 'star': [0, 0, 0, 0, ]}, follow=True)
+        Review.objects.filter(post=pasakornh)
+        self.client.post(f'/write_review_matched/{pasakornh.name}',
+                         {'item_review': 'COMMENT NO.2', 'star': [0, 0, 0, 0, ]}, follow=True)
+        Review.objects.filter(post=pasakornh)
+        self.client.post(f'/write_review_matched/{pasakornh.name}',
+                         {'item_review': 'COMMENT NO.3', 'star': [0, 0, 0, 0, ]}, follow=True)
 
-        #  he saw his comment but he change his mind he want to delete comment
+        #  he saw his comment but he change his mind he want to delete comment no.2
         total_review = Review.objects.filter(post=pasakornh).all()
-        self.assertEqual(total_review.count(), 1)
-        self.assertEqual(total_review[0].message, 'Your teaching is so bad.')
+        self.assertEqual(total_review.count(), 3)
+        self.assertEqual(total_review[0].message, 'COMMENT NO.1')
+        self.assertEqual(total_review[1].message, 'COMMENT NO.2')
+        self.assertEqual(total_review[2].message, 'COMMENT NO.3')
 
         # he  click on delete review button
-        self.client.post(f'/remove_review/{total_review[0].id}/{pasakornh.name}', follow=True)
+        self.client.post(f'/remove_review/{total_review[1].id}/{pasakornh.name}', follow=True)
 
         # now his review is gone
         total_review = Review.objects.filter(post=pasakornh).all()
-        self.assertEqual(total_review.count(), 0)
+        self.assertEqual(total_review.count(), 2)
+        self.assertEqual(total_review[0].message, 'COMMENT NO.1')
+        self.assertEqual(total_review[1].message, 'COMMENT NO.3')
