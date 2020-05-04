@@ -613,18 +613,18 @@ def remove_review(request, profile_name):
             # set review id
             base_user = review_id.real_name
             # set review owner name
-            if base_user == login_user:
+            if base_user == login_user :
                 # if online user name = review owner name
                 review_id.delete()
                 # delete comment review
                 return redirect(reverse('friendprofile', args=(profile_name,)))
                 # set all variable to friend profiles functions
             else:
-                pass
-                # do nothing
+                return redirect(reverse('friendprofile', args=(profile_name,)))
+                # return to tutor profile
         else:
             return redirect('login')
             # if user not login return to login page
     else:
-        pass
-        # do nothing
+        return redirect(reverse('friendprofile', args=(profile_name,)))
+        # return to tutor profiles

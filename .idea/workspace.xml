@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
+    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="add post,object name check in remove review">
+      <change beforePath="$PROJECT_DIR$/match/templates/Friend_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/Friend_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +142,7 @@
       <workItem from="1588420469621" duration="3101000" />
       <workItem from="1588509670842" duration="2345000" />
       <workItem from="1588523440385" duration="734000" />
-      <workItem from="1588577438683" duration="299000" />
+      <workItem from="1588577438683" duration="1680000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -398,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588524175685</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="add post,object name check in remove review">
+      <created>1588577854154</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1588577854154</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,8 +433,18 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit Sign-up , Friend match and Friend request" />
     <MESSAGE value="Add background in see tutor profile , recieve profile , friend profile" />
     <MESSAGE value="Add help page" />
     <MESSAGE value="Rename Model class &quot;human&quot; to &quot;Human&quot; and rewrite all calling Human class" />
@@ -433,7 +469,8 @@
     <MESSAGE value="Edit match/test.py: add more check logic in remove review UT" />
     <MESSAGE value="chang remove review method to post" />
     <MESSAGE value="add check whether user login logic in def remove_review" />
-    <option name="LAST_COMMIT_MESSAGE" value="add check whether user login logic in def remove_review" />
+    <MESSAGE value="add post,object name check in remove review" />
+    <option name="LAST_COMMIT_MESSAGE" value="add post,object name check in remove review" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">

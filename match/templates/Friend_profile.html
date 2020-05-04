@@ -177,7 +177,7 @@
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>{% endif %}
-    <br> {{ review.message }}   </br>
+    <br> {{ review.message }}   </br><br>
     {% if review.real_name == user.username %}
               <form action="{% url 'remove_review'  username   %}" method="POST">
                                 {% csrf_token %}
