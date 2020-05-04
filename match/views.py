@@ -601,14 +601,30 @@ def help_app(request):
 
 
 def remove_review(request, profile_name):
-    if request.user.is_authenticated:
-        # check when user has login
-        object_id = int(request.POST['review_id'])
-        review_delete = Review.objects.get(id=object_id)
-        review_delete.delete()
-        # delete comment review
-        return redirect(reverse('friendprofile', args=(profile_name,)))
-        # set all variable to friend profiles functions
+    if request.method == 'POST':
+        # check post request from template
+        if request.user.is_authenticated:
+            # check when user has login
+            login_user = request.user.username
+            # Check Online user
+            object_id = int(request.POST['review_id'])
+            # Get  id from html
+            review_id = Review.objects.get(id=object_id)
+            # set review id
+            base_user = review_id.real_name
+            # set review owner name
+            if base_user == login_user:
+                # if online user name = review owner name
+                review_id.delete()
+                # delete comment review
+                return redirect(reverse('friendprofile', args=(profile_name,)))
+                # set all variable to friend profiles functions
+            else:
+                pass
+                # do nothing
+        else:
+            return redirect('login')
+            # if user not login return to login page
     else:
-        return redirect('login')
-        # if user not login retern to login page
+        pass
+        # do nothing

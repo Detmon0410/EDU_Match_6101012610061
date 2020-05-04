@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="" />
+    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="/tmp/mozilla_detmon0/views.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -121,6 +123,7 @@
       <workItem from="1588420469621" duration="3101000" />
       <workItem from="1588509670842" duration="2345000" />
       <workItem from="1588523440385" duration="734000" />
+      <workItem from="1588577438683" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
