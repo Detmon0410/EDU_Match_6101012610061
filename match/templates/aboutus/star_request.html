@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}EDU-MATCH{% endblock %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Request</title>
+</head>
+<body style="background-color:#373c42;">
+
+<center>
+    <h2  style="color:whitesmoke"id="User" style="font-size: 30px" class="font-weight-bold " >Please Rate Your Tutor Star</h2>
+    <br>
+    <img align="middle" src="/media/pic/star_request.jpg" width="600" height="300">
+    <br><br>
+    <button onclick="goBack()" class="btn btn-outline-warning btn-sm" style="font-size: 24px" >Go Back To Tutor Profile</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</center>
+</body>
+
+
+</html>
+{% endblock content %}

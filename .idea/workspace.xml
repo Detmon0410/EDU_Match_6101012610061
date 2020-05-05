@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="add post,object name check in remove review">
-      <change beforePath="$PROJECT_DIR$/match/templates/Friend_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/match/templates/Friend_profile.html" afterDir="false" />
+    <list default="true" id="116e4d56-e0ca-45fe-847b-1ae4d66208f9" name="Default Changelist" comment="change pass to redirect in else logic in remove review">
+      <change afterPath="$PROJECT_DIR$/match/templates/aboutus/star_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/match/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,13 @@
       <recent name="$PROJECT_DIR$/chat" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RunManager" selected="JavaScript Debug.star_request.html">
+    <configuration name="home.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EDU_Match_6101012610061/match/templates/home.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="star_request.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EDU_Match_6101012610061/match/templates/aboutus/star_request.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EDU_Match" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,6 +112,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.star_request.html" />
+        <item itemvalue="JavaScript Debug.home.html" />
         <item itemvalue="Python.manage" />
         <item itemvalue="Python tests.Unittests for tests.NewVisitorTest.test_can_user_register" />
       </list>
@@ -142,7 +151,7 @@
       <workItem from="1588420469621" duration="3101000" />
       <workItem from="1588509670842" duration="2345000" />
       <workItem from="1588523440385" duration="734000" />
-      <workItem from="1588577438683" duration="1680000" />
+      <workItem from="1588577438683" duration="9157000" />
     </task>
     <task id="LOCAL-00001" summary="User can sign Up and show total users registered">
       <created>1579888877286</created>
@@ -424,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588577854154</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="change pass to redirect in else logic in remove review">
+      <created>1588579516786</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1588579516786</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add background in see tutor profile , recieve profile , friend profile" />
     <MESSAGE value="Add help page" />
     <MESSAGE value="Rename Model class &quot;human&quot; to &quot;Human&quot; and rewrite all calling Human class" />
     <MESSAGE value="Rename Model class &quot;chatlog&quot; to &quot;Chatlog&quot; and rewrite all calling Chatlog class" />
@@ -470,7 +485,8 @@
     <MESSAGE value="chang remove review method to post" />
     <MESSAGE value="add check whether user login logic in def remove_review" />
     <MESSAGE value="add post,object name check in remove review" />
-    <option name="LAST_COMMIT_MESSAGE" value="add post,object name check in remove review" />
+    <MESSAGE value="change pass to redirect in else logic in remove review" />
+    <option name="LAST_COMMIT_MESSAGE" value="change pass to redirect in else logic in remove review" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="275" width="378" height="372" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585065729033">
@@ -493,21 +509,25 @@
     </state>
     <state x="452" y="141" width="468" height="532" key="FileChooserDialogImpl/0.27.1325.741@0.27.1325.741" timestamp="1588514226100" />
     <state x="466" y="135" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.702@0.27.1366.702" timestamp="1585157716618" />
-    <state width="1343" height="163" key="GridCell.Tab.0.bottom" timestamp="1580796205503">
-      <screen x="0" y="27" width="1366" height="702" />
+    <state width="1281" height="116" key="GridCell.Tab.0.bottom" timestamp="1588661214220">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
+    <state width="1281" height="116" key="GridCell.Tab.0.bottom/0.27.1325.741@0.27.1325.741" timestamp="1588661214220" />
     <state width="1343" height="163" key="GridCell.Tab.0.bottom/0.27.1366.702@0.27.1366.702" timestamp="1580796205503" />
-    <state width="1343" height="163" key="GridCell.Tab.0.center" timestamp="1580796205503">
-      <screen x="0" y="27" width="1366" height="702" />
+    <state width="1281" height="116" key="GridCell.Tab.0.center" timestamp="1588661214215">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
+    <state width="1281" height="116" key="GridCell.Tab.0.center/0.27.1325.741@0.27.1325.741" timestamp="1588661214215" />
     <state width="1343" height="163" key="GridCell.Tab.0.center/0.27.1366.702@0.27.1366.702" timestamp="1580796205503" />
-    <state width="1343" height="163" key="GridCell.Tab.0.left" timestamp="1580796205502">
-      <screen x="0" y="27" width="1366" height="702" />
+    <state width="1281" height="116" key="GridCell.Tab.0.left" timestamp="1588661214213">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
+    <state width="1281" height="116" key="GridCell.Tab.0.left/0.27.1325.741@0.27.1325.741" timestamp="1588661214213" />
     <state width="1343" height="163" key="GridCell.Tab.0.left/0.27.1366.702@0.27.1366.702" timestamp="1580796205502" />
-    <state width="1343" height="163" key="GridCell.Tab.0.right" timestamp="1580796205503">
-      <screen x="0" y="27" width="1366" height="702" />
+    <state width="1281" height="116" key="GridCell.Tab.0.right" timestamp="1588661214217">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
+    <state width="1281" height="116" key="GridCell.Tab.0.right/0.27.1325.741@0.27.1325.741" timestamp="1588661214217" />
     <state width="1343" height="163" key="GridCell.Tab.0.right/0.27.1366.702@0.27.1366.702" timestamp="1580796205503" />
     <state width="332" height="478" key="HiddenNamespacesPopup" timestamp="1581901729579">
       <screen x="0" y="27" width="1325" height="741" />
@@ -530,15 +550,15 @@
     <state x="391" y="150" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1580671258311">
       <screen x="0" y="27" width="1920" height="1000" />
     </state>
-    <state x="278" y="113" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1366.702@0.27.1366.702" timestamp="1579882506916" />
     <state x="391" y="150" key="Vcs.Push.Dialog.v2/0.27.1920.1000@0.27.1920.1000" timestamp="1580671258311" />
     <state x="293" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1582771716460">
       <screen x="0" y="27" width="1325" height="741" />
     </state>
     <state x="293" y="224" key="com.intellij.ide.util.TipDialog/0.27.1325.741@0.27.1325.741" timestamp="1582771716460" />
-    <state x="728" y="446" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580671228038">
-      <screen x="0" y="27" width="1920" height="1000" />
+    <state x="502" y="337" width="501" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588662538154">
+      <screen x="0" y="27" width="1325" height="741" />
     </state>
+    <state x="502" y="337" width="501" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1325.741@0.27.1325.741" timestamp="1588662538154" />
     <state x="728" y="446" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1000@0.27.1920.1000" timestamp="1580671228038" />
     <state x="331" y="83" width="863" height="646" key="find.popup" timestamp="1582219475322">
       <screen x="0" y="27" width="1366" height="702" />
@@ -571,7 +591,15 @@
           <line>405</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/match/views.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EDU_Match_6101012610061$manage.coverage" NAME="manage Coverage Results" MODIFIED="1588659862120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

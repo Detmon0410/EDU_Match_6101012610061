@@ -171,21 +171,21 @@ def write_review(request, profile_name):
         if get_rating:
             star_rating = get_rating[0]
 
+
+
+            Review.objects.create(post=user_a, real_name=request.user.username, star=star_rating,
+                                  message=request.POST.get('item_review', ''))
+            # receive star variable and message variable
+            user_comment_all = Review.objects.filter(post=user_a)
+            if user_comment_all.count() > 0:
+                # when have comment
+                for i in user_comment_all:
+                    mean_star += i.star
+                    # calculate new stars rating
+            return redirect(reverse('friendprofile', args=(profile_name,)))
+            # set all variable to render on friend profiles functions
         else:
-            star_rating = 0
-
-        Review.objects.create(post=user_a, real_name=request.user.username, star=star_rating,
-                              message=request.POST.get('item_review', ''))
-        # receive star variable and message variable
-        user_comment_all = Review.objects.filter(post=user_a)
-        if user_comment_all.count() > 0:
-            # when have comment
-            for i in user_comment_all:
-                mean_star += i.star
-                # calculate new stars rating
-        return redirect(reverse('friendprofile', args=(profile_name,)))
-        # set all variable to render on friend profiles functions
-
+            return render(request, 'aboutus/star_request.html')
 
 def view_r_profile(request, name):
     # this func will show match request from other user
