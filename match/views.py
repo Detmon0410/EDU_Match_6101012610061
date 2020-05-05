@@ -611,9 +611,9 @@ def remove_review(request, profile_name):
             # Get  id from html
             review_id = Review.objects.get(id=object_id)
             # set review id
-            base_user = review_id.real_name
+            reviewer = review_id.real_name
             # set review owner name
-            if base_user == login_user :
+            if reviewer == login_user :
                 # if online user name = review owner name
                 review_id.delete()
                 # delete comment review
