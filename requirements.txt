@@ -44,4 +44,4 @@ websocket-client==0.57.0
 websockets==3.2
 whitenoise==5.0.1
 django-crispy-forms==1.8.1
-Pillow==7.0.0
+Pillow==9.0.0
